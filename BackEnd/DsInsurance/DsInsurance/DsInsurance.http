@@ -1,0 +1,6 @@
+@DsInsurance_HostAddress = http://localhost:5226
+
+GET {{DsInsurance_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,344 @@
+[
+  {
+    "ContainingType": "DsInsurance.Controllers.AddressController",
+    "Method": "GetAllAddresses",
+    "RelativePath": "api/Address",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.AddressController",
+    "Method": "AddAddress",
+    "RelativePath": "api/Address",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addressDto",
+        "Type": "DsInsurance.DTOs.AddressDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.AddressController",
+    "Method": "UpdateAddress",
+    "RelativePath": "api/Address",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addressDto",
+        "Type": "DsInsurance.DTOs.AddressDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.AddressController",
+    "Method": "GetAddressById",
+    "RelativePath": "api/Address/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.AddressController",
+    "Method": "DeleteAddress",
+    "RelativePath": "api/Address/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.EnumsController",
+    "Method": "GetClaimStatuses",
+    "RelativePath": "api/Enums/claim-status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.EnumsController",
+    "Method": "GetDepartmentTypes",
+    "RelativePath": "api/Enums/department-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.EnumsController",
+    "Method": "GetEarningTypes",
+    "RelativePath": "api/Enums/earning-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.EnumsController",
+    "Method": "GetInstallmentStatuses",
+    "RelativePath": "api/Enums/installment-status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.EnumsController",
+    "Method": "GetNotificationTypes",
+    "RelativePath": "api/Enums/notification-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.EnumsController",
+    "Method": "GetPaymentStatusesTypes",
+    "RelativePath": "api/Enums/payment-status-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.EnumsController",
+    "Method": "GetPolicyStatuses",
+    "RelativePath": "api/Enums/policy-status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.EnumsController",
+    "Method": "GetPremiumTypes",
+    "RelativePath": "api/Enums/premium-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.EnumsController",
+    "Method": "GetRefundStatuses",
+    "RelativePath": "api/Enums/refund-status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.EnumsController",
+    "Method": "GetRiderTypes",
+    "RelativePath": "api/Enums/rider-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.EnumsController",
+    "Method": "GetRoles",
+    "RelativePath": "api/Enums/roles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.EnumsController",
+    "Method": "GetTransactionTypes",
+    "RelativePath": "api/Enums/transaction-types",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.RoleController",
+    "Method": "GetAllRoles",
+    "RelativePath": "api/Role",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.RoleController",
+    "Method": "AddRole",
+    "RelativePath": "api/Role",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleDto",
+        "Type": "DsInsurance.DTOs.RoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.RoleController",
+    "Method": "UpdateRole",
+    "RelativePath": "api/Role",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "roleDto",
+        "Type": "DsInsurance.DTOs.RoleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.RoleController",
+    "Method": "GetRoleById",
+    "RelativePath": "api/Role/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.RoleController",
+    "Method": "DeleteRole",
+    "RelativePath": "api/Role/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.UserController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/User",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.UserController",
+    "Method": "AddUser",
+    "RelativePath": "api/User",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "DsInsurance.DTOs.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/User",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userDto",
+        "Type": "DsInsurance.DTOs.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.UserController",
+    "Method": "GetUserById",
+    "RelativePath": "api/User/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/User/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
