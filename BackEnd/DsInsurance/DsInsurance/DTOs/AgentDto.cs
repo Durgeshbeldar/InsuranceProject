@@ -4,7 +4,7 @@ namespace DsInsurance.DTOs
 {
     public class AgentDto
     {
-        public Guid? AgentId { get; set; }
+        public Guid AgentId { get; set; }
 
         [Required(ErrorMessage = "First name is required.")]
         [StringLength(50, ErrorMessage = "First name cannot exceed 50 characters.")]
@@ -13,8 +13,17 @@ namespace DsInsurance.DTOs
         [StringLength(50, ErrorMessage = "Last name cannot exceed 50 characters.")]
         public string LastName { get; set; }
 
+        [Required]
+        public DateTime DateOfBirth { get; set; }
+
+        [Required]
+        [StringLength(15)]
+        public string Gender { get; set; }
+
         [Required(ErrorMessage = "Address ID is required.")]
-        public int? AddressId { get; set; }
+        public Guid? AddressId { get; set; }
+
+        public bool? KycVerified { get; set; } = false;
 
         public string? AddressDetails { get; set; }
 
@@ -25,6 +34,6 @@ namespace DsInsurance.DTOs
 
         public DateTime ActiveSince { get; set; }
 
-        public ICollection<int>? PolicyAccountIds { get; set; }
+       
     }
 }

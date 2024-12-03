@@ -11,7 +11,7 @@ namespace DsInsurance.DTOs
         public string Name { get; set; }
 
         [Required(ErrorMessage = "State ID is required.")]
-        public int StateId { get; set; }
+        public Guid StateId { get; set; }
 
         public string? StateName { get; set; }
 

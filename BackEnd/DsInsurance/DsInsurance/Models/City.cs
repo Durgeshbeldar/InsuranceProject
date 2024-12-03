@@ -13,7 +13,7 @@ namespace DsInsurance.Models
         public string Name { get; set; }
 
         [ForeignKey("State")]
-        public int StateId { get; set; }
+        public Guid StateId { get; set; }
 
         // Navigation Properties
         public State State { get; set; }

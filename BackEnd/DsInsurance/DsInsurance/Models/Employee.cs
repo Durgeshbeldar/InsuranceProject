@@ -17,6 +17,13 @@ namespace DsInsurance.Models
         public string LastName { get; set; }
 
         [Required]
+        public DateTime DateOfBirth { get; set; }
+
+        [Required]
+        [StringLength(15)]
+        public string Gender { get; set; }
+
+        [Required]
         public decimal Salary { get; set; }
 
         [Required]

@@ -21,10 +21,10 @@ namespace DsInsurance.Models
 
 
         [ForeignKey("City")]
-        public int CityId { get; set; }
+        public Guid CityId { get; set; }
 
         [ForeignKey("State")]
-        public int StateId { get; set; }
+        public Guid StateId { get; set; }
 
         [Required]
         [StringLength(10)]

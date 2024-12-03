@@ -21,10 +21,10 @@ namespace DsInsurance.DTOs
 
         // Input: Foreign keys for creation/updation
         [Required(ErrorMessage = "City ID is required.")]
-        public int? CityId { get; set; }
+        public Guid? CityId { get; set; }
 
         [Required(ErrorMessage = "State ID is required.")]
-        public int? StateId { get; set; }
+        public Guid? StateId { get; set; }
 
         // Output: Human-readable names for response
         public string? CityName { get; set; } // Nullable because it won't be provided during creation

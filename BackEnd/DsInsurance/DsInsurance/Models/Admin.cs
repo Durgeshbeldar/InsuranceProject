@@ -1,20 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Net;
 
 namespace DsInsurance.Models
 {
-    public class Customer
+    public class Admin
     {
         [Key]
         [ForeignKey("User")]
-        public Guid CustomerId { get; set; }
+        public Guid AdminId { get; set; }
 
         [Required]
         [StringLength(50)]
         public string FirstName { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string LastName { get; set; }
 
@@ -32,8 +30,6 @@ namespace DsInsurance.Models
         [ForeignKey("Address")]
         public Guid AddressId { get; set; }
 
-        public bool KycVerified { get; set; } = false;
-
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         // Navigation Properties
@@ -41,4 +37,3 @@ namespace DsInsurance.Models
         public Address Address { get; set; }
     }
 }
-

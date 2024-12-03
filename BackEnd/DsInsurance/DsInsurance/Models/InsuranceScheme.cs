@@ -32,7 +32,7 @@ namespace DsInsurance.Models
         public int MaxAge { get; set; }
 
         public float ProfitRatio { get; set; }
-
+        public float SettlementRatio { get; set; }
         public float RegistrationCommission { get; set; }
 
         public float InstallmentCommission { get; set; }

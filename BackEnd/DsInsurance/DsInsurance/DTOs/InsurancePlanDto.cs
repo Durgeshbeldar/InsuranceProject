@@ -10,10 +10,11 @@ namespace DsInsurance.DTOs
         [StringLength(100, ErrorMessage = "Plan name cannot exceed 100 characters.")]
         public string PlanName { get; set; }
 
+        [StringLength(200, ErrorMessage = "Description cannot exceed 200 characters.")]
         public string? Description { get; set; }
 
         [Required(ErrorMessage = "Scheme ID is required.")]
-        public int SchemeId { get; set; }
+        public Guid SchemeId { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }

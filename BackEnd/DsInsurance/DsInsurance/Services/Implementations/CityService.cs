@@ -3,10 +3,11 @@ using DsInsurance.DTOs;
 using DsInsurance.Exceptions;
 using DsInsurance.Models;
 using DsInsurance.Repositories.Interfaces;
+using DsInsurance.Services.Interfaces;
 
 namespace DsInsurance.Services.Implementations
 {
-    public class CityService
+    public class CityService: ICityService
     {
         private readonly IRepository<City> _cityRepository;
         private readonly IMapper _mapper;

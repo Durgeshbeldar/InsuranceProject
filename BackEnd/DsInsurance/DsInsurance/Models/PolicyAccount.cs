@@ -9,16 +9,16 @@ namespace DsInsurance.Models
         public Guid PolicyNo { get; set; }
 
         [ForeignKey("Customer")]
-        public int CustomerId { get; set; }
+        public Guid CustomerId { get; set; }
 
         [ForeignKey("Agent")]
-        public int AgentId { get; set; }
+        public Guid AgentId { get; set; }
 
         [ForeignKey("InsuranceScheme")]
-        public int InsuranceSchemeId { get; set; }
+        public Guid InsuranceSchemeId { get; set; }
 
         [Required]
-        public decimal SumAssured { get; set; }
+        public decimal SumAssured { get; set; } 
 
         [Required]
         public string PremiumType { get; set; } // Enum: Monthly, Quarterly, Yearly

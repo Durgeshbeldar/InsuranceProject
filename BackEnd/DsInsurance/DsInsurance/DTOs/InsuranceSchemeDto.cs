@@ -35,8 +35,8 @@ namespace DsInsurance.DTOs
         [Required(ErrorMessage = "Maximum age is required.")]
         [Range(0, 100, ErrorMessage = "Maximum age must be between 0 and 100.")]
         public int MaxAge { get; set; }
-
         public float ProfitRatio { get; set; }
+        public float SettlementRatio { get; set; }
 
         public float RegistrationCommission { get; set; }
 

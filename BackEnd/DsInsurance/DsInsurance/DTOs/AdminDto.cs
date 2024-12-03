@@ -2,23 +2,22 @@
 
 namespace DsInsurance.DTOs
 {
-    public class CustomerDto
+    public class AdminDto
     {
-        public Guid? CustomerId { get; set; }
+        public Guid? AdminId { get; set; }
 
         [Required(ErrorMessage = "First name is required.")]
         [StringLength(50, ErrorMessage = "First name cannot exceed 50 characters.")]
         public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "Last name is required.")]
         [StringLength(50, ErrorMessage = "Last name cannot exceed 50 characters.")]
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Date of birth is required.")]
         public DateTime DateOfBirth { get; set; }
 
-        [Required (ErrorMessage = "Gender is required field")]
-        [StringLength(15)]
+        [Required(ErrorMessage = "Gender is required.")]
+        [StringLength(15, ErrorMessage = "Gender cannot exceed 15 characters.")]
         public string Gender { get; set; }
 
         [Required(ErrorMessage = "Phone number is required.")]
@@ -28,11 +27,8 @@ namespace DsInsurance.DTOs
         [Required(ErrorMessage = "Address ID is required.")]
         public Guid? AddressId { get; set; }
 
-        public bool KycVerified { get; set; }
+        public string? AddressDetails { get; set; } // Optional for response
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-
-        public string? AddressDetails { get; set; }
-
     }
 }

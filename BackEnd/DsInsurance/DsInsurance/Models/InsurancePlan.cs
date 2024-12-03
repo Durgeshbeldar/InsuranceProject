@@ -12,10 +12,11 @@ namespace DsInsurance.Models
         [StringLength(100)]
         public string PlanName { get; set; }
 
+        [StringLength(200)]
         public string Description { get; set; }
 
         [ForeignKey("InsuranceScheme")]
-        public int SchemeId { get; set; }
+        public Guid SchemeId { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

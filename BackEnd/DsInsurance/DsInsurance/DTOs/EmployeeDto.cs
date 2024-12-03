@@ -13,6 +13,13 @@ namespace DsInsurance.DTOs
         [StringLength(50, ErrorMessage = "Last name cannot exceed 50 characters.")]
         public string LastName { get; set; }
 
+        [Required (ErrorMessage ="Dob is required")]
+        public DateTime DateOfBirth { get; set; }
+
+        [Required (ErrorMessage ="Gender is an mandatory field")]
+        [StringLength(15)]
+        public string Gender { get; set; }
+
         [Required(ErrorMessage = "Salary is required.")]
         [Range(0, double.MaxValue, ErrorMessage = "Salary must be a positive value.")]
         public decimal Salary { get; set; }

@@ -25,8 +25,20 @@ namespace DsInsurance
                 options.UseSqlServer(builder.Configuration.GetConnectionString("ConnString"));
             });
             builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
-            builder.Services.AddTransient<IRoleService, RoleService>();
             builder.Services.AddTransient<IUserService, UserService>();
+            builder.Services.AddTransient<IRoleService, RoleService>();
+            builder.Services.AddTransient<IAddressService, AddressService>();
+            builder.Services.AddTransient<IStateService, StateService>();
+            builder.Services.AddTransient<ICityService, CityService>();
+            builder.Services.AddTransient<IAgentService, AgentService>();
+            builder.Services.AddTransient<ICustomerService, CustomerService>();
+            builder.Services.AddTransient<IEmployeeService, EmployeeService>();
+            builder.Services.AddTransient<IAdminService, AdminService>();
+            builder.Services.AddTransient<IInsuranceSchemeService, InsuranceSchemeService>();
+            builder.Services.AddTransient<IInsurancePlanService, InsurancePlanService>();
+            builder.Services.AddTransient<INomineeService, NomineeService>();
+
+
 
 
             builder.Services.AddControllers();
