@@ -4,6 +4,7 @@ using DsInsurance.Exceptions;
 using DsInsurance.Models;
 using DsInsurance.Repositories.Interfaces;
 using DsInsurance.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DsInsurance.Services.Implementations
 {
@@ -20,7 +21,7 @@ namespace DsInsurance.Services.Implementations
 
         public List<CityDto> GetAllCities()
         {
-            var cities = _cityRepository.GetAll().ToList();
+            var cities = _cityRepository.GetAll().Include(city=> city.State).ToList();
             if (!cities.Any())
                 throw new NotFoundException("Cities not found.");
 

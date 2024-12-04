@@ -25,8 +25,6 @@ namespace DsInsurance.DTOs
         [Required(ErrorMessage = "Phone number is required.")]
         [Phone(ErrorMessage = "Invalid phone number format.")]
         public string PhoneNumber { get; set; }
-
-        [Required(ErrorMessage = "Address ID is required.")]
         public Guid? AddressId { get; set; }
 
         public bool KycVerified { get; set; }

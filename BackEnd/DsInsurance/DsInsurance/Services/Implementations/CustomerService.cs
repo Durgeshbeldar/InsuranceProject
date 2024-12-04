@@ -55,12 +55,11 @@ namespace DsInsurance.Services.Implementations
 
         public void DeleteCustomer(Guid id)
         {
-            var customer = _customerRepository.GetById(id);
-            if (customer == null)
+            var employee = _customerRepository.GetById(id);
+            if (employee == null)
                 throw new NotFoundException("Customer");
 
-            customer.IsActive = false;
-            _customerRepository.Update(customer);
+            _customerRepository.Delete(employee);
         }
     }
 }

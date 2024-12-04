@@ -53,7 +53,7 @@ namespace DsInsurance.Services.Implementations
             _schemeRepository.Update(scheme);
         }
 
-        public void DeleteInsuranceScheme(Guid schemeId)
+        public void DeleteScheme(Guid schemeId)
         {
             var scheme = _schemeRepository.GetById(schemeId);
             if (scheme == null)
