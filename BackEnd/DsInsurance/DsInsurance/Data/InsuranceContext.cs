@@ -28,6 +28,7 @@ namespace DsInsurance.Data
         {
             //******* User ***********
             // Unique constraint for UserName
+            modelBuilder.Ignore<PolicyAccount>();
 
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.UserName)

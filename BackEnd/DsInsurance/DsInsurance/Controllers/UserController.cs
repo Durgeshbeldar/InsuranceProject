@@ -10,10 +10,26 @@ namespace DsInsurance.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-
         public UserController(IUserService userService)
         {
             _userService = userService;
+        }
+
+
+        [HttpPost("Login")]
+        public IActionResult Login(LoginDto loginDto)
+        {
+            var (isAuthenticated, token, message, roleName) = _userService.Authenticate(loginDto);
+
+            if (!isAuthenticated)
+                return BadRequest(new { message });
+
+            return Ok(new
+            {
+                message = "Login successful.",
+                token,
+                roleName
+            });
         }
 
         [HttpGet]

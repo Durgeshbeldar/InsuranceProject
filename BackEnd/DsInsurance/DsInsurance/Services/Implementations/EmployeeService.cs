@@ -45,7 +45,7 @@ namespace DsInsurance.Services.Implementations
 
         public void UpdateEmployee(EmployeeDto employeeDto)
         {
-            var existingEmployee = _employeeRepository.GetById(employeeDto.EmployeeId.Value);
+            var existingEmployee = _employeeRepository.GetById(employeeDto.EmployeeId);
             if (existingEmployee == null)
                 throw new NotFoundException("Employee");
 

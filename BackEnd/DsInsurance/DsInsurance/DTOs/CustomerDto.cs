@@ -4,7 +4,8 @@ namespace DsInsurance.DTOs
 {
     public class CustomerDto
     {
-        public Guid? CustomerId { get; set; }
+        [Required(ErrorMessage = "Customer ID (User ID) is required.")]
+        public Guid CustomerId { get; set; }
 
         [Required(ErrorMessage = "First name is required.")]
         [StringLength(50, ErrorMessage = "First name cannot exceed 50 characters.")]
@@ -31,8 +32,6 @@ namespace DsInsurance.DTOs
         public bool KycVerified { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
-
-        public string? AddressDetails { get; set; }
 
     }
 }

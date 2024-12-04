@@ -45,7 +45,7 @@ namespace DsInsurance.Services.Implementations
 
         public void UpdateCustomer(CustomerDto customerDto)
         {
-            var existingCustomer = _customerRepository.GetById(customerDto.CustomerId.Value);
+            var existingCustomer = _customerRepository.GetById(customerDto.CustomerId);
             if (existingCustomer == null)
                 throw new NotFoundException("Customer");
 

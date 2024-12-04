@@ -35,6 +35,6 @@ namespace DsInsurance.Models
         public bool IsActive { get; set; } = true;
 
         // Navigation Properties
-        public User User { get; set; }
+        public User? User { get; set; }
     }
 }

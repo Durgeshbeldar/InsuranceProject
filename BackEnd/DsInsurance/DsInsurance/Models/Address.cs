@@ -21,17 +21,17 @@ namespace DsInsurance.Models
 
 
         [ForeignKey("City")]
-        public Guid CityId { get; set; }
+        public Guid? CityId { get; set; }
 
         [ForeignKey("State")]
-        public Guid StateId { get; set; }
+        public Guid? StateId { get; set; }
 
         [Required]
         [StringLength(10)]
         public string Pincode { get; set; }
 
         // Navigation Properties
-        public City City { get; set; }
-        public State State { get; set; }
+        public City? City { get; set; }
+        public State? State { get; set; }
     }
 }

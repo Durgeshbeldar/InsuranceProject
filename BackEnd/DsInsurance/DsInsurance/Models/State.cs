@@ -12,6 +12,6 @@ namespace DsInsurance.Models
         public string Name { get; set; }
 
         // Navigation Properties
-        public ICollection<City> Cities { get; set; }
+        public ICollection<City>? Cities { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DsInsurance.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace DsInsurance.DTOs
 {
@@ -12,9 +13,6 @@ namespace DsInsurance.DTOs
 
         [Required(ErrorMessage = "State ID is required.")]
         public Guid StateId { get; set; }
-
         public string? StateName { get; set; }
-
-        public ICollection<int>? AddressIds { get; set; }
     }
 }

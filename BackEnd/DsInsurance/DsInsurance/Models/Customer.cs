@@ -30,15 +30,15 @@ namespace DsInsurance.Models
         public string PhoneNumber { get; set; }
 
         [ForeignKey("Address")]
-        public Guid AddressId { get; set; }
+        public Guid? AddressId { get; set; }
 
         public bool KycVerified { get; set; } = false;
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         // Navigation Properties
-        public User User { get; set; }
-        public Address Address { get; set; }
+        public User? User { get; set; }
+        public Address? Address { get; set; }
     }
 }
 

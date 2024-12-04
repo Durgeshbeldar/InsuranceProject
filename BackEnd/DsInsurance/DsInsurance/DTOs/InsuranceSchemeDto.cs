@@ -41,7 +41,5 @@ namespace DsInsurance.DTOs
         public float RegistrationCommission { get; set; }
 
         public float InstallmentCommission { get; set; }
-
-        public ICollection<int>? InsurancePlanIds { get; set; }
     }
 }

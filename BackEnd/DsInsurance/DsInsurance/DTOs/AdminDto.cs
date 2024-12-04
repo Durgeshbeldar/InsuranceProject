@@ -4,7 +4,8 @@ namespace DsInsurance.DTOs
 {
     public class AdminDto
     {
-        public Guid? AdminId { get; set; }
+        [Required(ErrorMessage = "Admin ID (User ID) is required.")]
+        public Guid AdminId { get; set; }
 
         [Required(ErrorMessage = "First name is required.")]
         [StringLength(50, ErrorMessage = "First name cannot exceed 50 characters.")]
@@ -24,10 +25,7 @@ namespace DsInsurance.DTOs
         [Phone(ErrorMessage = "Invalid phone number format.")]
         public string PhoneNumber { get; set; }
 
-        [Required(ErrorMessage = "Address ID is required.")]
         public Guid? AddressId { get; set; }
-
-        public string? AddressDetails { get; set; } // Optional for response
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }

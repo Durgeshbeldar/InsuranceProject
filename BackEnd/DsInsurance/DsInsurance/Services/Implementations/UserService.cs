@@ -4,6 +4,12 @@ using DsInsurance.Exceptions;
 using DsInsurance.Models;
 using DsInsurance.Repositories.Interfaces;
 using DsInsurance.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Claim = System.Security.Claims.Claim;
 
 namespace DsInsurance.Services.Implementations
 {
@@ -12,13 +18,52 @@ namespace DsInsurance.Services.Implementations
 
         private readonly IRepository<User> _userRepository;
         private readonly IMapper _mapper;
+        private readonly IConfiguration _configuration;
 
-        public UserService(IRepository<User> userRepository, IMapper mapper)
+        public UserService(IRepository<User> userRepository, IMapper mapper, IConfiguration configuration)
         {
             _userRepository = userRepository;
             _mapper = mapper;
+            _configuration = configuration;
         }
 
+        public (bool isAuthenticated, string token, string message, string roleName) Authenticate(LoginDto loginDto)
+        {
+            var existingUser = _userRepository.GetAll()
+                               .Include(user => user.Role)
+                               .FirstOrDefault(user => loginDto.UserName == user.UserName);
+
+            if (existingUser == null)
+                return (false, null, "User Not Found.", null);
+
+            if (!BCrypt.Net.BCrypt.Verify(loginDto.Password, existingUser.Password))
+                return (false, null, "Invalid password.", null);
+
+            string token = CreateToken(existingUser);
+            return (true, token, "Login successful.", existingUser.Role.RoleName);
+        }
+
+        private string CreateToken(User user)
+        {
+            var roleName = user.Role.RoleName;
+            List<Claim> claims = new List<Claim>()
+            {
+                 new Claim(ClaimTypes.Name,user.UserName),
+                 new Claim(ClaimTypes.Role, roleName),
+            };
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetSection("AppSettings:Key").Value));
+            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            //token construction
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.Now.AddDays(1),
+                signingCredentials: cred
+                );
+            //generate the token
+            var jwt = new JwtSecurityTokenHandler().WriteToken(token);
+            return jwt;
+
+        }
         public List<UserDto> GetAllUsers()
         {
             var users = _userRepository.GetAll().ToList();

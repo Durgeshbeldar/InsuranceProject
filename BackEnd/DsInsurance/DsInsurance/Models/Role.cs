@@ -12,6 +12,6 @@ namespace DsInsurance.Models
         public string RoleName { get; set; } //  We Have Used Enum: Admin, Employee, Agent, Customer
 
         // Navigation Properties
-        public ICollection<User> Users { get; set; }
+        public ICollection<User>? Users { get; set; }
     }
 }

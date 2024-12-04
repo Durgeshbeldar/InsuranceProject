@@ -45,7 +45,7 @@ namespace DsInsurance.Services.Implementations
 
         public void UpdateAdmin(AdminDto adminDto)
         {
-            var existingAdmin = _adminRepository.GetById(adminDto.AdminId.Value);
+            var existingAdmin = _adminRepository.GetById(adminDto.AdminId);
             if (existingAdmin == null)
                 throw new NotFoundException("Admin");
 

@@ -37,6 +37,6 @@ namespace DsInsurance.Models
 
         public float InstallmentCommission { get; set; }
 
-        public ICollection<InsurancePlan> InsurancePlans { get; set; }
+        public ICollection<InsurancePlan>? InsurancePlans { get; set; }
     }
 }

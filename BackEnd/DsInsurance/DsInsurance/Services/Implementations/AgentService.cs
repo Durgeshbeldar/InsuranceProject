@@ -45,7 +45,7 @@ namespace DsInsurance.Services.Implementations
 
         public void UpdateAgent(AgentDto agentDto)
         {
-            var existingAgent = _agentRepository.GetById(agentDto.AgentId.Value);
+            var existingAgent = _agentRepository.GetById(agentDto.AgentId);
             if (existingAgent == null)
                 throw new NotFoundException("Agent");
 

@@ -6,7 +6,12 @@ using DsInsurance.Repositories.Implemetations;
 using DsInsurance.Repositories.Interfaces;
 using DsInsurance.Services.Implementations;
 using DsInsurance.Services.Interfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.Text.Json.Serialization;
 
 namespace DsInsurance
 {
@@ -23,6 +28,9 @@ namespace DsInsurance
             builder.Services.AddDbContext<InsuranceContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("ConnString"));
+
+                options.ConfigureWarnings(warnings =>
+                warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
             });
             builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             builder.Services.AddTransient<IUserService, UserService>();
@@ -43,11 +51,30 @@ namespace DsInsurance
 
             builder.Services.AddControllers();
 
+            // Igonre Cycles
+            builder.Services.AddControllers().AddJsonOptions(x =>
+            {
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+            });
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddExceptionHandler<AppExceptionHandler>();
+            //add auth scheme--validating token
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8
+                        .GetBytes(builder.Configuration.GetSection("AppSettings:Key").Value)),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                });
 
 
             var app = builder.Build();
@@ -62,6 +89,7 @@ namespace DsInsurance
             app.UseExceptionHandler(_ => { });
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
 

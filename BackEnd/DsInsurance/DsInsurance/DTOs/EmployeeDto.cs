@@ -4,7 +4,8 @@ namespace DsInsurance.DTOs
 {
     public class EmployeeDto
     {
-        public Guid? EmployeeId { get; set; }
+        [Required(ErrorMessage = "Employee ID (User ID) is required.")]
+        public Guid EmployeeId { get; set; }
 
         [Required(ErrorMessage = "First name is required.")]
         [StringLength(50, ErrorMessage = "First name cannot exceed 50 characters.")]

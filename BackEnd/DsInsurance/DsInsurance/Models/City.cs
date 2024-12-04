@@ -16,7 +16,7 @@ namespace DsInsurance.Models
         public Guid StateId { get; set; }
 
         // Navigation Properties
-        public State State { get; set; }
-        public ICollection<Address> Addresses { get; set; }
+        public State? State { get; set; }
+        public ICollection<Address>? Addresses { get; set; }
     }
 }

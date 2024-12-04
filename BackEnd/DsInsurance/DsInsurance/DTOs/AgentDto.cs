@@ -4,6 +4,7 @@ namespace DsInsurance.DTOs
 {
     public class AgentDto
     {
+        [Required(ErrorMessage = "Agent ID (User ID) is required.")]
         public Guid AgentId { get; set; }
 
         [Required(ErrorMessage = "First name is required.")]

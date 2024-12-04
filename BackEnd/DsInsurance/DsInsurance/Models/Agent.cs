@@ -35,8 +35,8 @@ namespace DsInsurance.Models
         public DateTime ActiveSince { get; set; }
 
         // Navigation Properties
-        public User User { get; set; }
-        public Address Address { get; set; }
-        public ICollection<PolicyAccount> PolicyAccounts { get; set; }
+        public User? User { get; set; }
+        public Address? Address { get; set; }
+        public ICollection<PolicyAccount>? PolicyAccounts { get; set; }
     }
 }

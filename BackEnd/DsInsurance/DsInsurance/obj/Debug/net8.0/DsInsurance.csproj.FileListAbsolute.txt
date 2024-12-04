@@ -168,3 +168,5 @@ S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd
 S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd\DsInsurance\DsInsurance\obj\Debug\net8.0\ref\DsInsurance.dll
 S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd\DsInsurance\DsInsurance\bin\Debug\net8.0\AutoMapper.dll
 S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd\DsInsurance\DsInsurance\bin\Debug\net8.0\BCrypt.Net-Next.dll
+S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd\DsInsurance\DsInsurance\obj\Debug\net8.0\DsInsurance.sourcelink.json
+S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd\DsInsurance\DsInsurance\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
