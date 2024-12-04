@@ -28,6 +28,7 @@ namespace DsInsurance.Models
 
         [Required]
         [StringLength(10)]
+        public bool IsActive { get; set; } = true;
         public string Pincode { get; set; }
 
         // Navigation Properties

@@ -116,13 +116,14 @@ namespace DsInsurance.Services.Implementations
             _userRepository.Update(updatedUser);
         }
 
-        public void DeleteUser(Guid userId)
+        public void DeleteUser(Guid id)
         {
-            var user = _userRepository.GetById(userId);
+            var user = _userRepository.GetById(id);
             if (user == null)
                 throw new NotFoundException("User");
 
-            _userRepository.Delete(user);
+            user.IsActive = false; // Mark as inactive
+            _userRepository.Update(user); // Persist the change
         }
     }
 }

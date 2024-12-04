@@ -3,24 +3,80 @@
   "WorkspaceRootPath": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\services\\implementations\\nomineeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\services\\implementations\\nomineeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\models\\nominee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\models\\nominee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\services\\implementations\\insuranceschemeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\services\\implementations\\insuranceschemeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\models\\insurancescheme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\models\\insurancescheme.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\services\\implementations\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\services\\implementations\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\services\\implementations\\addressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\services\\implementations\\addressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\models\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\services\\implementations\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\services\\implementations\\roleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\services\\interfaces\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\services\\interfaces\\iroleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\services\\implementations\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\dtos\\roledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\dtos\\roledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\controllers\\rolecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\data\\insurancecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\data\\insurancecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\dtos\\customerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\dtos\\customerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\models\\agent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\models\\agent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\services\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|s:\\office work\\monocept training\\e-insurance project\\main project folder\\backend\\dsinsurance\\dsinsurance\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{505CF077-A0E6-4B9D-8202-1536F2C013FB}|DsInsurance\\DsInsurance.csproj|solutionrelative:dsinsurance\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,66 +91,248 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Program.cs",
-              "RelativeDocumentMoniker": "DsInsurance\\Program.cs",
-              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Program.cs",
-              "RelativeToolTip": "DsInsurance\\Program.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAQwFMAAAAwAAAAAAAAAA==",
+              "Title": "NomineeService.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\NomineeService.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Services\\Implementations\\NomineeService.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\NomineeService.cs",
+              "RelativeToolTip": "DsInsurance\\Services\\Implementations\\NomineeService.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAqwDIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T09:34:28.243Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RoleDto.cs",
-              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\DTOs\\RoleDto.cs",
-              "RelativeDocumentMoniker": "DsInsurance\\DTOs\\RoleDto.cs",
-              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\DTOs\\RoleDto.cs",
-              "RelativeToolTip": "DsInsurance\\DTOs\\RoleDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T09:33:10.17Z",
+              "WhenOpened": "2024-12-04T13:24:45.008Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\UserService.cs",
-              "RelativeDocumentMoniker": "DsInsurance\\Services\\Implementations\\UserService.cs",
-              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\UserService.cs",
-              "RelativeToolTip": "DsInsurance\\Services\\Implementations\\UserService.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAQwCcAAABAAAAAAAAAAA==",
+              "Title": "Nominee.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Models\\Nominee.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Models\\Nominee.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Models\\Nominee.cs",
+              "RelativeToolTip": "DsInsurance\\Models\\Nominee.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBgAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T09:22:36.791Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Interfaces\\IUserService.cs",
-              "RelativeDocumentMoniker": "DsInsurance\\Services\\Interfaces\\IUserService.cs",
-              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Interfaces\\IUserService.cs",
-              "RelativeToolTip": "DsInsurance\\Services\\Interfaces\\IUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T09:21:08.966Z",
+              "WhenOpened": "2024-12-04T13:24:05.922Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "InsuranceScheme.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Models\\InsuranceScheme.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Models\\InsuranceScheme.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Models\\InsuranceScheme.cs",
+              "RelativeToolTip": "DsInsurance\\Models\\InsuranceScheme.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAswCUAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T13:23:21.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InsuranceSchemeService.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\InsuranceSchemeService.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Services\\Implementations\\InsuranceSchemeService.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\InsuranceSchemeService.cs",
+              "RelativeToolTip": "DsInsurance\\Services\\Implementations\\InsuranceSchemeService.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowDsAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T13:21:38.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CustomerService.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\CustomerService.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Services\\Implementations\\CustomerService.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\CustomerService.cs",
+              "RelativeToolTip": "DsInsurance\\Services\\Implementations\\CustomerService.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAkwDgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T13:19:00.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Address.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Models\\Address.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Models\\Address.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Models\\Address.cs",
+              "RelativeToolTip": "DsInsurance\\Models\\Address.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA1wB4AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T13:14:57.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddressService.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\AddressService.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Services\\Implementations\\AddressService.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\AddressService.cs",
+              "RelativeToolTip": "DsInsurance\\Services\\Implementations\\AddressService.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAkwEEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T13:14:29.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RoleService.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\RoleService.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Services\\Implementations\\RoleService.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\RoleService.cs",
+              "RelativeToolTip": "DsInsurance\\Services\\Implementations\\RoleService.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAkwEYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T13:13:52.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IRoleService.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Interfaces\\IRoleService.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Services\\Interfaces\\IRoleService.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Interfaces\\IRoleService.cs",
+              "RelativeToolTip": "DsInsurance\\Services\\Interfaces\\IRoleService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T13:13:48.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RoleController.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Controllers\\RoleController.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Controllers\\RoleController.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Controllers\\RoleController.cs",
+              "RelativeToolTip": "DsInsurance\\Controllers\\RoleController.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T13:08:16.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\DTOs\\UserDto.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\DTOs\\UserDto.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\DTOs\\UserDto.cs",
+              "RelativeToolTip": "DsInsurance\\DTOs\\UserDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T11:14:33.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "InsuranceContext.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Data\\InsuranceContext.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Data\\InsuranceContext.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Data\\InsuranceContext.cs",
+              "RelativeToolTip": "DsInsurance\\Data\\InsuranceContext.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAiwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T11:12:44.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Models\\Customer.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Models\\Customer.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Models\\Customer.cs",
+              "RelativeToolTip": "DsInsurance\\Models\\Customer.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAkwCQAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T10:55:07.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CustomerDto.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\DTOs\\CustomerDto.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\DTOs\\CustomerDto.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\DTOs\\CustomerDto.cs",
+              "RelativeToolTip": "DsInsurance\\DTOs\\CustomerDto.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAYwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T11:01:45.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Agent.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Models\\Agent.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Models\\Agent.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Models\\Agent.cs",
+              "RelativeToolTip": "DsInsurance\\Models\\Agent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T10:55:01.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Models\\Admin.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Models\\Admin.cs",
+              "RelativeToolTip": "DsInsurance\\Models\\Admin.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T10:54:27.785Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\UserService.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Services\\Implementations\\UserService.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Services\\Implementations\\UserService.cs",
+              "RelativeToolTip": "DsInsurance\\Services\\Implementations\\UserService.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAswH4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T10:48:21.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "UserController.cs",
               "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "DsInsurance\\Controllers\\UserController.cs",
               "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Controllers\\UserController.cs",
               "RelativeToolTip": "DsInsurance\\Controllers\\UserController.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAQwAsAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T09:14:29.129Z",
+              "WhenOpened": "2024-12-04T10:26:16.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Program.cs",
+              "DocumentMoniker": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Program.cs",
+              "RelativeDocumentMoniker": "DsInsurance\\Program.cs",
+              "ToolTip": "S:\\Office Work\\Monocept Training\\E-Insurance Project\\Main Project Folder\\BackEnd\\DsInsurance\\DsInsurance\\Program.cs",
+              "RelativeToolTip": "DsInsurance\\Program.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAQwGMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-04T09:34:28.243Z",
               "EditorCaption": ""
             }
           ]

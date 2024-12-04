@@ -54,13 +54,14 @@ namespace DsInsurance.Services.Implementations
             _addressRepository.Update(address);
         }
 
-        public void DeleteAddress(Guid addressId)
+        public void DeleteAddress(Guid id)
         {
-            var address = _addressRepository.GetById(addressId);
+            var address = _addressRepository.GetById(id);
             if (address == null)
-                throw new NotFoundException("Address not found for deletion.");
+                throw new NotFoundException("Address");
 
-            _addressRepository.Delete(address);
+            address.IsActive = false;
+            _addressRepository.Update(address);
         }
     }
 }

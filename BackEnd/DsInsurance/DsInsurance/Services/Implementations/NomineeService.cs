@@ -53,13 +53,14 @@ namespace DsInsurance.Services.Implementations
             _nomineeRepository.Update(nominee);
         }
 
-        public void DeleteNominee(Guid nomineeId)
+        public void DeleteNominee(Guid id)
         {
-            var nominee = _nomineeRepository.GetById(nomineeId);
+            var nominee = _nomineeRepository.GetById(id);
             if (nominee == null)
                 throw new NotFoundException("Nominee");
 
-            _nomineeRepository.Delete(nominee);
+            nominee.IsActive = false;
+            _nomineeRepository.Update(nominee);
         }
     }
 }

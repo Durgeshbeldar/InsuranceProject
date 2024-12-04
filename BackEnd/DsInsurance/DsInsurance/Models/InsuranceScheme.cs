@@ -35,6 +35,7 @@ namespace DsInsurance.Models
         public float SettlementRatio { get; set; }
         public float RegistrationCommission { get; set; }
 
+        public bool IsActive { get; set; } = true;
         public float InstallmentCommission { get; set; }
 
         public ICollection<InsurancePlan>? InsurancePlans { get; set; }

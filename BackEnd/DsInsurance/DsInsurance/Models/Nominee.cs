@@ -22,6 +22,8 @@ namespace DsInsurance.Models
         [Required]
         public int Age { get; set; }
 
+        public bool IsActive { get; set; } = true;
+
         [Phone]
         public string Contact { get; set; }
 

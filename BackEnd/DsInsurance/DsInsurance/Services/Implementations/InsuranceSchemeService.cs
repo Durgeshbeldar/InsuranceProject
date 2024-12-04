@@ -53,13 +53,14 @@ namespace DsInsurance.Services.Implementations
             _schemeRepository.Update(scheme);
         }
 
-        public void DeleteScheme(Guid schemeId)
+        public void DeleteInsuranceScheme(Guid schemeId)
         {
             var scheme = _schemeRepository.GetById(schemeId);
             if (scheme == null)
-                throw new NotFoundException("InsuranceScheme");
+                throw new NotFoundException("Insurance Scheme");
 
-            _schemeRepository.Delete(scheme);
+            scheme.IsActive = false;
+            _schemeRepository.Update(scheme);
         }
     }
 }
