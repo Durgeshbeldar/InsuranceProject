@@ -27,9 +27,11 @@ namespace DsInsurance.DTOs
         public string PhoneNumber { get; set; }
         public Guid? AddressId { get; set; }
 
-        public bool KycVerified { get; set; }
+        public Guid? AgentId { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public bool? KycVerified { get; set; } = false;
+
+        public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DsInsurance.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace DsInsurance.DTOs
 {
@@ -10,12 +11,13 @@ namespace DsInsurance.DTOs
         [StringLength(100, ErrorMessage = "Plan name cannot exceed 100 characters.")]
         public string PlanName { get; set; }
 
-        [StringLength(200, ErrorMessage = "Description cannot exceed 200 characters.")]
+        public string? PlanImage { get; set; }
+
+        
         public string? Description { get; set; }
+        public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
+        ICollection<InsuranceScheme>? InsuranceSchemes { get; set; }
 
-        [Required(ErrorMessage = "Scheme ID is required.")]
-        public Guid SchemeId { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

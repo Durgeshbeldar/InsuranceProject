@@ -20,8 +20,6 @@ namespace DsInsurance.DTOs
         [Required]
         [StringLength(15)]
         public string Gender { get; set; }
-
-        [Required(ErrorMessage = "Address ID is required.")]
         public Guid? AddressId { get; set; }
 
         public bool? KycVerified { get; set; } = false;
@@ -31,10 +29,8 @@ namespace DsInsurance.DTOs
         public decimal TotalCommission { get; set; }
 
         [Range(0, 5, ErrorMessage = "Rating must be between 0 and 5.")]
-        public float Rating { get; set; }
+        public float? Rating { get; set; } = 0;
 
         public DateTime ActiveSince { get; set; }
-
-       
     }
 }

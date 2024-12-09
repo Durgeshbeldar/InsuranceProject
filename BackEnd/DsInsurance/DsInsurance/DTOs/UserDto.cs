@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DsInsurance.Models;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
+using System.ComponentModel.DataAnnotations;
 
 namespace DsInsurance.DTOs
 {
@@ -26,6 +28,7 @@ namespace DsInsurance.DTOs
 
         public bool IsActive { get; set; } = true;
 
+        public string? RoleName { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

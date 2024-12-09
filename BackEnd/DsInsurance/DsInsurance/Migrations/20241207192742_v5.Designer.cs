@@ -4,6 +4,7 @@ using DsInsurance.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DsInsurance.Migrations
 {
     [DbContext(typeof(InsuranceContext))]
-    partial class InsuranceContextModelSnapshot : ModelSnapshot
+    [Migration("20241207192742_v5")]
+    partial class v5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -182,9 +185,6 @@ namespace DsInsurance.Migrations
                     b.Property<Guid?>("AddressId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AgentId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -216,8 +216,6 @@ namespace DsInsurance.Migrations
                     b.HasKey("CustomerId");
 
                     b.HasIndex("AddressId");
-
-                    b.HasIndex("AgentId");
 
                     b.ToTable("Customers");
                 });
@@ -277,6 +275,7 @@ namespace DsInsurance.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("PlanImage")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PlanName")
@@ -532,10 +531,6 @@ namespace DsInsurance.Migrations
                         .WithMany()
                         .HasForeignKey("AddressId");
 
-                    b.HasOne("DsInsurance.Models.Agent", "Agent")
-                        .WithMany("Customers")
-                        .HasForeignKey("AgentId");
-
                     b.HasOne("DsInsurance.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("CustomerId")
@@ -543,8 +538,6 @@ namespace DsInsurance.Migrations
                         .IsRequired();
 
                     b.Navigation("Address");
-
-                    b.Navigation("Agent");
 
                     b.Navigation("User");
                 });
@@ -576,11 +569,6 @@ namespace DsInsurance.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
-                });
-
-            modelBuilder.Entity("DsInsurance.Models.Agent", b =>
-                {
-                    b.Navigation("Customers");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.City", b =>

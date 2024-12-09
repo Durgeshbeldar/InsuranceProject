@@ -4,6 +4,7 @@ using DsInsurance.Exceptions;
 using DsInsurance.Models;
 using DsInsurance.Repositories.Interfaces;
 using DsInsurance.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DsInsurance.Services.Implementations
 {
@@ -45,12 +46,11 @@ namespace DsInsurance.Services.Implementations
 
         public void UpdateScheme(InsuranceSchemeDto schemeDto)
         {
-            var existingScheme = _schemeRepository.GetById(schemeDto.SchemeId.Value);
+            var updatedScheme = _mapper.Map<InsuranceScheme>(schemeDto);
+            var existingScheme = _schemeRepository.GetAll().AsNoTracking().FirstOrDefault(scheme => updatedScheme.SchemeId == scheme.SchemeId);
             if (existingScheme == null)
                 throw new NotFoundException("InsuranceScheme");
-
-            var scheme = _mapper.Map<InsuranceScheme>(schemeDto);
-            _schemeRepository.Update(scheme);
+            _schemeRepository.Update(updatedScheme);
         }
 
         public void DeleteScheme(Guid schemeId)

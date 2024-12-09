@@ -10,10 +10,12 @@ namespace DsInsurance.Controllers
     public class CityController : ControllerBase
     {
         private readonly ICityService _cityService;
+        private readonly IStateService _stateService;
 
-        public CityController(ICityService cityService)
+        public CityController(ICityService cityService, IStateService stateService)
         {
             _cityService = cityService;
+            _stateService = stateService;
         }
 
         [HttpGet]
@@ -38,6 +40,13 @@ namespace DsInsurance.Controllers
             });
         }
 
+        [HttpGet("/State/{stateId}")]
+        public IActionResult GetCityByStateId(Guid stateId)
+        {
+            var cities = _cityService.GetCityByStateId(stateId);
+            return Ok(cities);
+        }
+
         [HttpPost]
         public IActionResult AddCity(CityDto cityDto)
         {
@@ -57,6 +66,8 @@ namespace DsInsurance.Controllers
                 Message = "City updated successfully."
             });
         }
+
+      
 
         [HttpDelete("{id}")]
         public IActionResult DeleteCity(Guid id)

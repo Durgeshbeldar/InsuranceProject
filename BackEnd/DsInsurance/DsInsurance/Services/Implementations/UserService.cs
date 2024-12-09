@@ -27,20 +27,19 @@ namespace DsInsurance.Services.Implementations
             _configuration = configuration;
         }
 
-        public (bool isAuthenticated, string token, string message, string roleName) Authenticate(LoginDto loginDto)
+        public (bool isAuthenticated, string token, string message, string roleName, Guid? userId) Authenticate(LoginDto loginDto)
         {
             var existingUser = _userRepository.GetAll()
                                .Include(user => user.Role)
                                .FirstOrDefault(user => loginDto.UserName == user.UserName);
-
+         
             if (existingUser == null)
-                return (false, null, "User Not Found.", null);
+                return (false, null, "User Not Found.", null,null);
 
             if (!BCrypt.Net.BCrypt.Verify(loginDto.Password, existingUser.Password))
-                return (false, null, "Invalid password.", null);
-
+                return (false, null, "Invalid password.", null,null);
             string token = CreateToken(existingUser);
-            return (true, token, "Login successful.", existingUser.Role.RoleName);
+            return (true, token, "Login successful.", existingUser.Role.RoleName, existingUser.UserId);
         }
 
         private string CreateToken(User user)
@@ -124,6 +123,14 @@ namespace DsInsurance.Services.Implementations
 
             user.IsActive = false; // Mark as inactive
             _userRepository.Update(user); // Persist the change
+        }
+
+        public void HardDeleteUser(Guid userId)
+        {
+            var user = _userRepository.GetById(userId);
+            if(user == null)
+                throw new NotFoundException("User");
+            _userRepository.Delete(user);
         }
     }
 }

@@ -4,6 +4,7 @@ using DsInsurance.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DsInsurance.Migrations
 {
     [DbContext(typeof(InsuranceContext))]
-    partial class InsuranceContextModelSnapshot : ModelSnapshot
+    [Migration("20241207093531_v4")]
+    partial class v4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -182,9 +185,6 @@ namespace DsInsurance.Migrations
                     b.Property<Guid?>("AddressId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("AgentId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -216,8 +216,6 @@ namespace DsInsurance.Migrations
                     b.HasKey("CustomerId");
 
                     b.HasIndex("AddressId");
-
-                    b.HasIndex("AgentId");
 
                     b.ToTable("Customers");
                 });
@@ -273,18 +271,21 @@ namespace DsInsurance.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("PlanImage")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PlanName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<Guid>("SchemeId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("PlanId");
+
+                    b.HasIndex("SchemeId");
 
                     b.ToTable("InsurancePlans");
                 });
@@ -301,9 +302,6 @@ namespace DsInsurance.Migrations
 
                     b.Property<float>("InstallmentCommission")
                         .HasColumnType("real");
-
-                    b.Property<Guid?>("InsurancePlanPlanId")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -326,9 +324,6 @@ namespace DsInsurance.Migrations
                     b.Property<int>("MinPolicyTerm")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("PlanId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<float>("ProfitRatio")
                         .HasColumnType("real");
 
@@ -344,8 +339,6 @@ namespace DsInsurance.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("SchemeId");
-
-                    b.HasIndex("InsurancePlanPlanId");
 
                     b.ToTable("InsuranceSchemes");
                 });
@@ -532,10 +525,6 @@ namespace DsInsurance.Migrations
                         .WithMany()
                         .HasForeignKey("AddressId");
 
-                    b.HasOne("DsInsurance.Models.Agent", "Agent")
-                        .WithMany("Customers")
-                        .HasForeignKey("AgentId");
-
                     b.HasOne("DsInsurance.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("CustomerId")
@@ -543,8 +532,6 @@ namespace DsInsurance.Migrations
                         .IsRequired();
 
                     b.Navigation("Address");
-
-                    b.Navigation("Agent");
 
                     b.Navigation("User");
                 });
@@ -560,11 +547,15 @@ namespace DsInsurance.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("DsInsurance.Models.InsuranceScheme", b =>
+            modelBuilder.Entity("DsInsurance.Models.InsurancePlan", b =>
                 {
-                    b.HasOne("DsInsurance.Models.InsurancePlan", null)
-                        .WithMany("InsuranceSchemes")
-                        .HasForeignKey("InsurancePlanPlanId");
+                    b.HasOne("DsInsurance.Models.InsuranceScheme", "InsuranceScheme")
+                        .WithMany("InsurancePlans")
+                        .HasForeignKey("SchemeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("InsuranceScheme");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.User", b =>
@@ -578,19 +569,14 @@ namespace DsInsurance.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("DsInsurance.Models.Agent", b =>
-                {
-                    b.Navigation("Customers");
-                });
-
             modelBuilder.Entity("DsInsurance.Models.City", b =>
                 {
                     b.Navigation("Addresses");
                 });
 
-            modelBuilder.Entity("DsInsurance.Models.InsurancePlan", b =>
+            modelBuilder.Entity("DsInsurance.Models.InsuranceScheme", b =>
                 {
-                    b.Navigation("InsuranceSchemes");
+                    b.Navigation("InsurancePlans");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.Role", b =>

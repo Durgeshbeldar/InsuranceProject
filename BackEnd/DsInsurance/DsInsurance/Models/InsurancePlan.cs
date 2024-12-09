@@ -12,14 +12,16 @@ namespace DsInsurance.Models
         [StringLength(100)]
         public string PlanName { get; set; }
 
-        [StringLength(200)]
-        public string Description { get; set; }
 
-        [ForeignKey("InsuranceScheme")]
-        public Guid SchemeId { get; set; }
+        public string? PlanImage { get; set; }
+
+        [StringLength(200)]
+        public string? Description { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public InsuranceScheme? InsuranceScheme { get; set; }
+        // Navigation Property 
+        public ICollection<InsuranceScheme>? InsuranceSchemes { get; set; }
+
     }
 }

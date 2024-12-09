@@ -6,6 +6,9 @@ namespace DsInsurance.DTOs
     {
         public Guid? SchemeId { get; set; }
 
+        [Required(ErrorMessage = "Plan Id is required.")]
+        public Guid PlanId { get; set; }
+
         [Required(ErrorMessage = "Scheme name is required.")]
         [StringLength(100, ErrorMessage = "Scheme name cannot exceed 100 characters.")]
         public string SchemeName { get; set; }

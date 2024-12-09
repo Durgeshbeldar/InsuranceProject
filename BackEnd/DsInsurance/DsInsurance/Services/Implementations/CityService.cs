@@ -63,5 +63,17 @@ namespace DsInsurance.Services.Implementations
 
             _cityRepository.Delete(city);
         }
+
+        public List<CityDto> GetCityByStateId(Guid stateId)
+        {
+            var cities = _cityRepository.GetAll()
+            .Where(city => city.StateId == stateId) // 🟢 Filter by StateId
+            .ToList();
+
+            if (!cities.Any())
+                throw new NotFoundException("No cities found for the given state.");
+
+            return _mapper.Map<List<CityDto>>(cities);
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DsInsurance.Models
 {
@@ -6,6 +7,9 @@ namespace DsInsurance.Models
     {
         [Key]
         public Guid SchemeId { get; set; }
+
+        [ForeignKey("InsurancePlan")]
+        public Guid PlanId { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -37,7 +41,5 @@ namespace DsInsurance.Models
 
         public bool IsActive { get; set; } = true;
         public float InstallmentCommission { get; set; }
-
-        public ICollection<InsurancePlan>? InsurancePlans { get; set; }
     }
 }

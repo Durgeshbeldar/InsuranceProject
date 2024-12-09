@@ -19,16 +19,17 @@ namespace DsInsurance.Controllers
         [HttpPost("Login")]
         public IActionResult Login(LoginDto loginDto)
         {
-            var (isAuthenticated, token, message, roleName) = _userService.Authenticate(loginDto);
+            var (isAuthenticated, token, message, roleName, userId) = _userService.Authenticate(loginDto);
 
             if (!isAuthenticated)
                 return BadRequest(new { message });
 
+            Response.Headers.Add("Jwt", token);
             return Ok(new
             {
                 message = "Login successful.",
-                token,
-                roleName
+                roleName,
+                userId,
             });
         }
 
@@ -61,7 +62,8 @@ namespace DsInsurance.Controllers
             var userId = _userService.AddUser(userDto);
             return Ok(new
             {
-                Message = $"User Added Successfully with ID: {userId}"
+                Message = "User Added Successfully",
+                Id = userId
             });
         }
 
@@ -83,6 +85,16 @@ namespace DsInsurance.Controllers
             return Ok(new
             {
                 Message = "User deleted successfully."
+            });
+        }
+
+        [HttpDelete("User/{id}")]
+        public IActionResult RemoveUser(Guid id)
+        {
+            _userService.HardDeleteUser(id);
+            return Ok(new
+            {
+                Message = "User Deleted Successfully"
             });
         }
     }

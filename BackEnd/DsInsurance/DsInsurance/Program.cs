@@ -32,6 +32,19 @@ namespace DsInsurance
                 options.ConfigureWarnings(warnings =>
                 warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
             });
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAngularApp", policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .WithExposedHeaders("*");
+
+                });
+            });
+
             builder.Services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
             builder.Services.AddTransient<IUserService, UserService>();
             builder.Services.AddTransient<IRoleService, RoleService>();
@@ -88,7 +101,7 @@ namespace DsInsurance
             }
             app.UseExceptionHandler(_ => { });
             app.UseHttpsRedirection();
-
+            app.UseCors("AllowAngularApp");
             app.UseAuthentication();
             app.UseAuthorization();
 

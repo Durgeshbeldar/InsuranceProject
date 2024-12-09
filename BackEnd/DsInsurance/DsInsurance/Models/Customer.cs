@@ -32,12 +32,16 @@ namespace DsInsurance.Models
         [ForeignKey("Address")]
         public Guid? AddressId { get; set; }
 
+        [ForeignKey("Agent")]
+        public Guid? AgentId { get; set; }
+
         public bool KycVerified { get; set; } = false;
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         // Navigation Properties
         public User? User { get; set; }
+        public Agent? Agent { get; set; }
         public Address? Address { get; set; }
     }
 }

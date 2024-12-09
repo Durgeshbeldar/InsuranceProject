@@ -564,6 +564,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DsInsurance.Controllers.FileController",
+    "Method": "UploadFile",
+    "RelativePath": "api/File/upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DsInsurance.Controllers.InsurancePlanController",
     "Method": "GetAllPlans",
     "RelativePath": "api/InsurancePlan",
@@ -1018,6 +1034,38 @@
       {
         "Name": "loginDto",
         "Type": "DsInsurance.DTOs.LoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.UserController",
+    "Method": "RemoveUser",
+    "RelativePath": "api/User/User/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.CityController",
+    "Method": "GetCityByStateId",
+    "RelativePath": "State/{stateId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "stateId",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],

@@ -41,6 +41,15 @@ namespace DsInsurance.Controllers
         [HttpPost]
         public IActionResult AddAddress(AddressDto addressDto)
         {
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage)
+                    .ToList();
+
+                return BadRequest(new { message = "Validation failed", errors });
+            }
             var addressId = _addressService.AddAddress(addressDto);
             return Ok(new
             {

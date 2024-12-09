@@ -38,5 +38,7 @@ namespace DsInsurance.Models
         public User? User { get; set; }
         public Address? Address { get; set; }
         public ICollection<PolicyAccount>? PolicyAccounts { get; set; }
+
+        public ICollection<Customer>? Customers { get; set; }
     }
 }

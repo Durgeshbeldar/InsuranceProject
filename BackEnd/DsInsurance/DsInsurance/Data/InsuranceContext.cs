@@ -40,6 +40,12 @@ namespace DsInsurance.Data
                 .HasIndex(u => u.Email)
                 .IsUnique();
 
+            modelBuilder.Entity<State>()
+                .HasIndex(state=>state.Name).IsUnique();
+
+            modelBuilder.Entity<City>().
+                HasIndex(City=> City.Name).IsUnique();
+
             base.OnModelCreating(modelBuilder);
 
 

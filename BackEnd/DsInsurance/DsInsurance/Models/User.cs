@@ -31,6 +31,6 @@ namespace DsInsurance.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         // Navigation Properties
-        public Role Role { get; set; }
+        public Role? Role { get; set; }
     }
 }

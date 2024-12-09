@@ -10,10 +10,10 @@ namespace DsInsurance.Mappers
        public MappingProfile()
        {
             // Get Request Mapping
-            CreateMap<User, UserDto>();
-
-            // Post Request Mapping
-            CreateMap<UserDto, User>();
+            CreateMap<User, UserDto>()
+            .ForMember(dest => dest.RoleName, opt => opt.MapFrom(src => src.Role != null ? src.Role.RoleName : null)) // Map RoleName from Role entity
+            .ReverseMap()
+            .ForMember(dest => dest.Role, opt => opt.Ignore());
 
             CreateMap<Agent, AgentDto>();
             CreateMap<AgentDto, Agent>();
@@ -26,6 +26,7 @@ namespace DsInsurance.Mappers
 
             CreateMap<Address, AddressDto>();
             CreateMap<AddressDto, Address>();
+
 
             CreateMap<Nominee, NomineeDto>();
             CreateMap<NomineeDto, Nominee>();

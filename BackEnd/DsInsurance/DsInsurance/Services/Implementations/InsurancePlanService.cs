@@ -4,6 +4,7 @@ using DsInsurance.Exceptions;
 using DsInsurance.Models;
 using DsInsurance.Repositories.Interfaces;
 using DsInsurance.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DsInsurance.Services.Implementations
 {
@@ -45,12 +46,11 @@ namespace DsInsurance.Services.Implementations
 
         public void UpdatePlan(InsurancePlanDto planDto)
         {
-            var existingPlan = _planRepository.GetById(planDto.PlanId.Value);
+            var updatedPlan = _mapper.Map<InsurancePlan>(planDto);
+            var existingPlan = _planRepository.GetAll().AsNoTracking().FirstOrDefault(plan => updatedPlan.PlanId == plan.PlanId);
             if (existingPlan == null)
                 throw new NotFoundException("InsurancePlan");
-
-            var plan = _mapper.Map<InsurancePlan>(planDto);
-            _planRepository.Update(plan);
+            _planRepository.Update(updatedPlan);
         }
 
         public void DeletePlan(Guid planId)

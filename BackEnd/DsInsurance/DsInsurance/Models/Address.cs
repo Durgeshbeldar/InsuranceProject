@@ -17,18 +17,17 @@ namespace DsInsurance.Models
         public string Street { get; set; }
 
         [StringLength(100)]
-        public string? Town { get; set; }
+        public string Town { get; set; }
 
 
         [ForeignKey("City")]
-        public Guid? CityId { get; set; }
+        public Guid CityId { get; set; }
 
         [ForeignKey("State")]
-        public Guid? StateId { get; set; }
+        public Guid StateId { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public bool IsActive { get; set; } = true;
+   
+        public bool? IsActive { get; set; } = true;
         public string Pincode { get; set; }
 
         // Navigation Properties

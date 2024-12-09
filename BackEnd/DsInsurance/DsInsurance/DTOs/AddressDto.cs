@@ -17,14 +17,14 @@ namespace DsInsurance.DTOs
         public string Street { get; set; }
 
         [StringLength(100, ErrorMessage = "Town name cannot exceed 100 characters.")]
-        public string? Town { get; set; }
+        public string Town { get; set; }
 
         // Input: Foreign keys for creation/updation
         [Required(ErrorMessage = "City ID is required.")]
-        public Guid? CityId { get; set; }
+        public Guid CityId { get; set; }
 
         [Required(ErrorMessage = "State ID is required.")]
-        public Guid? StateId { get; set; }
+        public Guid StateId { get; set; }
 
         // Output: Human-readable names for response
         public string? CityName { get; set; } // Nullable because it won't be provided during creation
@@ -32,8 +32,7 @@ namespace DsInsurance.DTOs
 
         // Input & Output: Common field for both
         [Required(ErrorMessage = "Pincode is required.")]
-        [StringLength(10, ErrorMessage = "Pincode cannot exceed 10 characters.")]
-        [RegularExpression(@"^\d{6}$", ErrorMessage = "Pincode must be a valid 6-digit number.")]
+        [RegularExpression(@"^\d{6}$", ErrorMessage = "Pincode must be a 6-digit number.")]
         public string Pincode { get; set; }
     }
 }

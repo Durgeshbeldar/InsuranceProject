@@ -9,5 +9,6 @@ namespace DsInsurance.Services.Interfaces
         Guid AddCity(CityDto cityDto);
         void UpdateCity(CityDto cityDto);
         void DeleteCity(Guid cityId);
+        public List<CityDto> GetCityByStateId(Guid stateId);
     }
 }
