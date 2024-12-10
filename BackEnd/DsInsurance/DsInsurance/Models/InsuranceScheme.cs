@@ -9,7 +9,7 @@ namespace DsInsurance.Models
         public Guid SchemeId { get; set; }
 
         [ForeignKey("InsurancePlan")]
-        public Guid? PlanId { get; set; }
+        public Guid PlanId { get; set; }
 
         [Required]
         [StringLength(100)]
@@ -43,5 +43,6 @@ namespace DsInsurance.Models
         public float InstallmentCommission { get; set; }
         
         public InsurancePlan? InsurancePlan { get; set; }
+
     }
 }

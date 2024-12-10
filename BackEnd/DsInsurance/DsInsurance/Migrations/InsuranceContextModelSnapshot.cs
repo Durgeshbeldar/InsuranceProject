@@ -748,7 +748,7 @@ namespace DsInsurance.Migrations
             modelBuilder.Entity("DsInsurance.Models.InsuranceScheme", b =>
                 {
                     b.HasOne("DsInsurance.Models.InsurancePlan", "InsurancePlan")
-                        .WithMany()
+                        .WithMany("InsuranceSchemes")
                         .HasForeignKey("InsurancePlanPlanId");
 
                     b.HasOne("DsInsurance.Models.InsurancePlan", null)
@@ -840,6 +840,11 @@ namespace DsInsurance.Migrations
             modelBuilder.Entity("DsInsurance.Models.City", b =>
                 {
                     b.Navigation("Addresses");
+                });
+
+            modelBuilder.Entity("DsInsurance.Models.InsurancePlan", b =>
+                {
+                    b.Navigation("InsuranceSchemes");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.PolicyAccount", b =>

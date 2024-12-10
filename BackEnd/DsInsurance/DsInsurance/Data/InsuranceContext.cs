@@ -26,8 +26,8 @@ namespace DsInsurance.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            ////******* User ***********
-            //// Unique constraint for UserName
+            //******* User ***********
+        
             //modelBuilder.Ignore<PolicyAccount>();
             modelBuilder.Entity<PolicyAccount>()
                 .HasOne(pa => pa.Customer)
@@ -47,12 +47,9 @@ namespace DsInsurance.Data
                 .HasForeignKey(pa => pa.SchemeId)
                 .OnDelete(DeleteBehavior.NoAction);
 
-            modelBuilder.Entity<User>()
-                .HasIndex(u => u.UserName)
-                .IsUnique();
 
-           
-            // No cascading delete
+
+            //  // No cascading delete
 
             modelBuilder.Entity<Address>()
                 .HasOne(a => a.City)
@@ -69,7 +66,13 @@ namespace DsInsurance.Data
 
 
 
-            // Unique constraint for Email
+            // Unique constraint
+
+
+
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.UserName)
+                .IsUnique();
 
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
