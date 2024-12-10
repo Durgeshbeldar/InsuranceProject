@@ -20,7 +20,7 @@ namespace DsInsurance.Models
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public ICollection<InsuranceScheme> InsuranceSchemes { get; set; }
+        //public ICollection<InsuranceScheme>? InsuranceSchemes { get; set; }
 
     }
 }

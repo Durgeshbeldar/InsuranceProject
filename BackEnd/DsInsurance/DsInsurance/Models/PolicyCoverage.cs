@@ -16,15 +16,15 @@ namespace DsInsurance.Models
         public string CoverageType { get; set; }
 
         [Required]
-        public decimal CoverageLimit { get; set; }
+        public decimal CoverageLimit { get; set; } = 0;
 
         [Required]
-        public decimal DeductibleAmount { get; set; }
+        public decimal DeductibleAmount { get; set; } = 0;
 
         [Required]
         public decimal PremiumImpact { get; set; }
 
         // Navigation Properties
-        public PolicyAccount PolicyAccount { get; set; }
+        public PolicyAccount? PolicyAccount { get; set; }
     }
 }

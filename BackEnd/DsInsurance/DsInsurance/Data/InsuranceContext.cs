@@ -19,6 +19,9 @@ namespace DsInsurance.Data
         public DbSet<InsurancePlan> InsurancePlans { get; set; }
         public DbSet<Nominee> Nominees { get; set; }
         public DbSet<PolicyAccount> PolicyAccounts { get; set; }
+        public DbSet<PolicyCoverage> PolicyCoverages { get; set; }
+        public DbSet<PolicyTransaction> PolicyTransactions { get; set; }
+        public DbSet<Installment> Installments { get; set; }
         public InsuranceContext(DbContextOptions<InsuranceContext> options) : base(options)
         {
 

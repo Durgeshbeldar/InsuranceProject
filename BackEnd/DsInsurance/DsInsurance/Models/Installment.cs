@@ -20,9 +20,7 @@ namespace DsInsurance.Models
         public decimal AmountDue { get; set; }
 
         [Required]
-        public string Status { get; set; } // Enum: Pending, Paid
+        public string Status { get; set; } = "Pending";
 
-        // Navigation Properties
-        public PolicyAccount PolicyAccount { get; set; }
     }
 }

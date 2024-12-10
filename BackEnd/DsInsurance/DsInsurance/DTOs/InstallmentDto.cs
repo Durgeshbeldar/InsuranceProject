@@ -4,10 +4,10 @@ namespace DsInsurance.DTOs
 {
     public class InstallmentDto
     {
-        public Guid? InstallmentId { get; set; }
+        public Guid? InstallmentId { get; set; } // Nullable for creation
 
         [Required(ErrorMessage = "Policy number is required.")]
-        public int PolicyNo { get; set; }
+        public Guid? PolicyNo { get; set; }
 
         [Required(ErrorMessage = "Due date is required.")]
         public DateTime DueDate { get; set; }
@@ -15,13 +15,11 @@ namespace DsInsurance.DTOs
         public DateTime? PaymentDate { get; set; }
 
         [Required(ErrorMessage = "Amount due is required.")]
-        [Range(0, double.MaxValue, ErrorMessage = "Amount due must be a positive value.")]
+        [Range(0.01, double.MaxValue, ErrorMessage = "Amount due must be greater than zero.")]
         public decimal AmountDue { get; set; }
 
-        [Range(0, double.MaxValue, ErrorMessage = "Amount paid must be a positive value.")]
-        public decimal? AmountPaid { get; set; }
-
         [Required(ErrorMessage = "Status is required.")]
-        public string Status { get; set; }
+        [StringLength(50, ErrorMessage = "Status cannot exceed 50 characters.")]
+        public string Status { get; set; } = "Pending";
     }
 }

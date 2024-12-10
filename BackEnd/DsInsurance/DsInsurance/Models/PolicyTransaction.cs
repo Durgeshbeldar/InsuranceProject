@@ -24,6 +24,6 @@ namespace DsInsurance.Models
         public string? Description { get; set; }
 
         // Navigation Properties
-        public PolicyAccount PolicyAccount { get; set; }
+        public PolicyAccount? PolicyAccount { get; set; }
     }
 }

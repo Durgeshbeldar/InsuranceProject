@@ -40,6 +40,16 @@ namespace DsInsurance.Mappers
             CreateMap<PolicyAccount, PolicyAccountDto>();
             CreateMap<PolicyAccountDto, PolicyAccount>();
 
+
+            CreateMap<PolicyCoverage, PolicyCoverageDto>();
+            CreateMap<PolicyCoverageDto, PolicyCoverage>();
+
+            CreateMap<PolicyTransaction, PolicyTransactionDto>();
+            CreateMap<PolicyTransactionDto, PolicyTransaction>();
+
+            CreateMap<Installment, InstallmentDto>();
+            CreateMap<InstallmentDto, Installment>();
+
             CreateMap<City, CityDto>()
                 .ForMember(dest => dest.StateName, opt => opt.MapFrom(src => src.State.Name));
             CreateMap<CityDto, City>();
