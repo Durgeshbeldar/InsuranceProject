@@ -41,5 +41,7 @@ namespace DsInsurance.Models
 
         public bool IsActive { get; set; } = true;
         public float InstallmentCommission { get; set; }
+        
+        public InsurancePlan? InsurancePlan { get; set; }
     }
 }

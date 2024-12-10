@@ -44,5 +44,7 @@ namespace DsInsurance.DTOs
         public float RegistrationCommission { get; set; }
 
         public float InstallmentCommission { get; set; }
+        public bool IsActive { get; set; } = true;
+        public InsurancePlanDto? InsurancePlan { get; set; }
     }
 }

@@ -26,9 +26,7 @@ namespace DsInsurance.DTOs
         [Required(ErrorMessage = "State ID is required.")]
         public Guid StateId { get; set; }
 
-        // Output: Human-readable names for response
-        public string? CityName { get; set; } // Nullable because it won't be provided during creation
-        public string? StateName { get; set; } // Nullable because it won't be provided during creation
+
 
         // Input & Output: Common field for both
         [Required(ErrorMessage = "Pincode is required.")]

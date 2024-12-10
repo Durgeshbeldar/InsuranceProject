@@ -21,7 +21,7 @@ namespace DsInsurance.Services.Implementations
 
         public List<InsuranceSchemeDto> GetAllSchemes()
         {
-            var schemes = _schemeRepository.GetAll().ToList();
+            var schemes = _schemeRepository.GetAll().Include(scheme=>scheme.InsurancePlan).ToList();
             if (!schemes.Any())
                 throw new NotFoundException("InsuranceSchemes");
 
