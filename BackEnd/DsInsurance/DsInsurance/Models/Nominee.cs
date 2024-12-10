@@ -26,8 +26,5 @@ namespace DsInsurance.Models
 
         [Phone]
         public string Contact { get; set; }
-
-        // Navigation Properties
-        public PolicyAccount? PolicyAccount { get; set; }
     }
 }

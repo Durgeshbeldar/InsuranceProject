@@ -13,14 +13,14 @@ namespace DsInsurance.Models
         public string DocumentName { get; set; }
 
         [Required]
-        public byte[] Content { get; set; } // Blob for document storage
+        public string FilePath { get; set; }
 
         public bool Verified { get; set; } = false;
 
         [ForeignKey("User")]
-        public int UploadedBy { get; set; }
+        public Guid UserId { get; set; }
 
         // Navigation Properties
-        public User User { get; set; }
+        public User? User { get; set; }
     }
 }

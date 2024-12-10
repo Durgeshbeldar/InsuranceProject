@@ -37,6 +37,9 @@ namespace DsInsurance.Mappers
             CreateMap<InsuranceScheme, InsuranceSchemeDto>();
             CreateMap<InsuranceSchemeDto, InsuranceScheme>();
 
+            CreateMap<PolicyAccount, PolicyAccountDto>();
+            CreateMap<PolicyAccountDto, PolicyAccount>();
+
             CreateMap<City, CityDto>()
                 .ForMember(dest => dest.StateName, opt => opt.MapFrom(src => src.State.Name));
             CreateMap<CityDto, City>();

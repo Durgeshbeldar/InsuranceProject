@@ -58,6 +58,7 @@ namespace DsInsurance
             builder.Services.AddTransient<IInsuranceSchemeService, InsuranceSchemeService>();
             builder.Services.AddTransient<IInsurancePlanService, InsurancePlanService>();
             builder.Services.AddTransient<INomineeService, NomineeService>();
+            builder.Services.AddTransient<IPolicyAccountService, PolicyAccountService>();
 
 
 

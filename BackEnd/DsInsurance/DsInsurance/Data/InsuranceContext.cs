@@ -18,7 +18,7 @@ namespace DsInsurance.Data
         public DbSet<InsuranceScheme> InsuranceSchemes { get; set; }
         public DbSet<InsurancePlan> InsurancePlans { get; set; }
         public DbSet<Nominee> Nominees { get; set; }
-
+        public DbSet<PolicyAccount> PolicyAccounts { get; set; }
         public InsuranceContext(DbContextOptions<InsuranceContext> options) : base(options)
         {
 
@@ -26,13 +26,48 @@ namespace DsInsurance.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //******* User ***********
-            // Unique constraint for UserName
-            modelBuilder.Ignore<PolicyAccount>();
+            ////******* User ***********
+            //// Unique constraint for UserName
+            //modelBuilder.Ignore<PolicyAccount>();
+            modelBuilder.Entity<PolicyAccount>()
+                .HasOne(pa => pa.Customer)
+                .WithMany()
+                .HasForeignKey(pa => pa.CustomerId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<PolicyAccount>()
+                .HasOne(pa => pa.Agent)
+                .WithMany()
+                .HasForeignKey(pa => pa.AgentId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<PolicyAccount>()
+                .HasOne(pa => pa.InsuranceScheme)
+                .WithMany()
+                .HasForeignKey(pa => pa.SchemeId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.UserName)
                 .IsUnique();
+
+           
+            // No cascading delete
+
+            modelBuilder.Entity<Address>()
+                .HasOne(a => a.City)
+                .WithMany(c => c.Addresses)
+                .HasForeignKey(a => a.CityId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<InsuranceScheme>()
+          .HasOne<InsurancePlan>() // Note: We don't need to mention InsurancePlan property since it's not in the model
+          .WithMany() // No reference back to InsuranceScheme
+          .HasForeignKey(scheme => scheme.PlanId)
+          .OnDelete(DeleteBehavior.NoAction);
+
+
+
 
             // Unique constraint for Email
 

@@ -9,7 +9,7 @@ namespace DsInsurance.Models
         public Guid TransactionId { get; set; }
 
         [ForeignKey("PolicyAccount")]
-        public int PolicyNo { get; set; }
+        public Guid PolicyNo { get; set; }
 
         [Required]
         public string TransactionType { get; set; } // Enum: Issuance, Renewal, Cancellation, Refund

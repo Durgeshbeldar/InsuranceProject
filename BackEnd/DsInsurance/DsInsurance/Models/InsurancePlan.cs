@@ -20,8 +20,7 @@ namespace DsInsurance.Models
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        // Navigation Property 
-        public ICollection<InsuranceScheme>? InsuranceSchemes { get; set; }
+        
 
     }
 }

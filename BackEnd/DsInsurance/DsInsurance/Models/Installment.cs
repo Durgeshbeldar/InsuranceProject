@@ -9,7 +9,7 @@ namespace DsInsurance.Models
         public Guid InstallmentId { get; set; }
 
         [ForeignKey("PolicyAccount")]
-        public int PolicyNo { get; set; }
+        public Guid PolicyNo { get; set; }
 
         [Required]
         public DateTime DueDate { get; set; }
@@ -18,8 +18,6 @@ namespace DsInsurance.Models
 
         [Required]
         public decimal AmountDue { get; set; }
-
-        public decimal? AmountPaid { get; set; }
 
         [Required]
         public string Status { get; set; } // Enum: Pending, Paid

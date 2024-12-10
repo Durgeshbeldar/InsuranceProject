@@ -9,7 +9,7 @@ namespace DsInsurance.Models
         public Guid CoverageId { get; set; }
 
         [ForeignKey("PolicyAccount")]
-        public int PolicyNo { get; set; }
+        public Guid PolicyNo { get; set; }
 
         [Required]
         [StringLength(50)]

@@ -802,6 +802,80 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DsInsurance.Controllers.PolicyAccountController",
+    "Method": "GetAllPolicyAccounts",
+    "RelativePath": "api/PolicyAccount",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyAccountController",
+    "Method": "AddPolicyAccount",
+    "RelativePath": "api/PolicyAccount",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "policyAccountDto",
+        "Type": "DsInsurance.DTOs.PolicyAccountDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyAccountController",
+    "Method": "UpdatePolicyAccount",
+    "RelativePath": "api/PolicyAccount",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "policyAccountDto",
+        "Type": "DsInsurance.DTOs.PolicyAccountDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyAccountController",
+    "Method": "GetPolicyAccountById",
+    "RelativePath": "api/PolicyAccount/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyAccountController",
+    "Method": "DeletePolicyAccount",
+    "RelativePath": "api/PolicyAccount/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DsInsurance.Controllers.RoleController",
     "Method": "GetAllRoles",
     "RelativePath": "api/Role",
