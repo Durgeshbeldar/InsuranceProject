@@ -26,11 +26,11 @@ namespace DsInsurance.DTOs
 
         public string? AddressDetails { get; set; }
 
-        public decimal TotalCommission { get; set; }
+        public decimal? TotalCommission { get; set; } = 0;
 
         [Range(0, 5, ErrorMessage = "Rating must be between 0 and 5.")]
         public float? Rating { get; set; } = 0;
 
-        public DateTime ActiveSince { get; set; }
+        public DateTime? ActiveSince { get; set; } = DateTime.UtcNow;
     }
 }

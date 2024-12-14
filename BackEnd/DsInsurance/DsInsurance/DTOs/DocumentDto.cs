@@ -11,11 +11,11 @@ namespace DsInsurance.DTOs
         public string DocumentName { get; set; }
 
         [Required(ErrorMessage = "Document content is required.")]
-        public byte[] Content { get; set; }
+        public string FilePath { get; set; }
 
-        public bool Verified { get; set; } = false;
+        public bool IsVerified { get; set; } = false;
 
         [Required(ErrorMessage = "UploadedBy User ID is required.")]
-        public int UploadedBy { get; set; }
+        public Guid UserId { get; set; }
     }
 }

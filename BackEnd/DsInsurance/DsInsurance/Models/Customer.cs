@@ -43,6 +43,7 @@ namespace DsInsurance.Models
         public User? User { get; set; }
         public Agent? Agent { get; set; }
         public Address? Address { get; set; }
+        public ICollection<Document>? Documents { get; set; }
     }
 }
 

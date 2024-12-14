@@ -7,7 +7,7 @@ namespace DsInsurance.DTOs
         public Guid? ClaimId { get; set; }
 
         [Required(ErrorMessage = "Policy number is required.")]
-        public int PolicyNo { get; set; }
+        public Guid PolicyNo { get; set; }
 
         [Required(ErrorMessage = "Customer ID is required.")]
         public int CustomerId { get; set; }

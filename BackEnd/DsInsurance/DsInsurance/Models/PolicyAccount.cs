@@ -9,15 +9,11 @@ namespace DsInsurance.Models
         [Key]
         public Guid PolicyNo { get; set; }
 
-        [Required]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int PolicyNumber { get; set; }
-
         [ForeignKey("Customer")]
         public Guid CustomerId { get; set; }
 
         [ForeignKey("Agent")]
-        public Guid AgentId { get; set; }
+        public Guid? AgentId { get; set; }
 
         [ForeignKey("InsuranceScheme")]
         public Guid SchemeId { get; set; }
@@ -34,7 +30,7 @@ namespace DsInsurance.Models
 
 
         [Required]
-        public decimal PremiumAmount { get; set; }
+        public double PremiumAmount { get; set; }
 
         [Required]
         public decimal TotalPaidAmount { get; set; } = 0;
@@ -45,7 +41,8 @@ namespace DsInsurance.Models
         public bool IsApproved { get; set; } = false;
 
         [Required]
-        public DateTime IssueDate { get; set; }
+        public DateTime AppliedDate { get; set; }
+        public DateTime? IssueDate { get; set; }
         public DateTime? CancellationDate { get; set; }
 
         [Required]
@@ -58,13 +55,13 @@ namespace DsInsurance.Models
         public bool IsActive { get; set; } = true;
 
         // Navigation Properties
-        public Customer Customer { get; set; }
-        public Agent Agent { get; set; }
+        public Customer? Customer { get; set; }
+        public Agent? Agent { get; set; }
         public InsuranceScheme? InsuranceScheme { get; set; }
         public ICollection<PolicyCoverage>? PolicyCoverages { get; set; }
         public ICollection<Installment>? Installments { get; set; }
         public ICollection<PolicyTransaction>? PolicyTransactions { get; set; }
-        public ICollection<Nominee>? Nomines { get; set; }
+        public ICollection<Nominee>? Nominees { get; set; }
 
 
     }

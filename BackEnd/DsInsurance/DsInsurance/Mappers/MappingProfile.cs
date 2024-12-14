@@ -50,6 +50,9 @@ namespace DsInsurance.Mappers
             CreateMap<Installment, InstallmentDto>();
             CreateMap<InstallmentDto, Installment>();
 
+            CreateMap<Document, DocumentDto>();
+            CreateMap<DocumentDto, Document>();
+
             CreateMap<City, CityDto>()
                 .ForMember(dest => dest.StateName, opt => opt.MapFrom(src => src.State.Name));
             CreateMap<CityDto, City>();

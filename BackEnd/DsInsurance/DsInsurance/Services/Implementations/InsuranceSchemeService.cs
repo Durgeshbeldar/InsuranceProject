@@ -28,6 +28,14 @@ namespace DsInsurance.Services.Implementations
             return _mapper.Map<List<InsuranceSchemeDto>>(schemes);
         }
 
+        public List<InsuranceSchemeDto> getSchemesByPlanId(Guid planId)
+        {
+            var insuranceSchemes = _schemeRepository.GetAll().Where(scheme=> scheme.PlanId == planId).ToList();
+            if (!insuranceSchemes.Any())
+                throw new NotFoundException("Insurance Schemes");
+            return _mapper.Map<List<InsuranceSchemeDto>>(insuranceSchemes);
+        }
+
         public InsuranceSchemeDto GetSchemeById(Guid schemeId)
         {
             var scheme = _schemeRepository.GetById(schemeId);

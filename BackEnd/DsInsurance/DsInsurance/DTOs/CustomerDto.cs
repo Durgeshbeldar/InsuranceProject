@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DsInsurance.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace DsInsurance.DTOs
 {
@@ -32,6 +33,7 @@ namespace DsInsurance.DTOs
         public bool? KycVerified { get; set; } = false;
 
         public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
+        public ICollection<Document> Documents { get; set; }
 
     }
 }

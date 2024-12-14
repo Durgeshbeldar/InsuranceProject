@@ -110,10 +110,10 @@ namespace DsInsurance.Migrations
                     b.Property<Guid>("AgentId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("ActiveSince")
+                    b.Property<DateTime?>("ActiveSince")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("AddressId")
+                    b.Property<Guid?>("AddressId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("DateOfBirth")
@@ -129,7 +129,7 @@ namespace DsInsurance.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.Property<bool>("KycVerified")
+                    b.Property<bool?>("KycVerified")
                         .HasColumnType("bit");
 
                     b.Property<string>("LastName")
@@ -137,10 +137,10 @@ namespace DsInsurance.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<float>("Rating")
+                    b.Property<float?>("Rating")
                         .HasColumnType("real");
 
-                    b.Property<decimal>("TotalCommission")
+                    b.Property<decimal?>("TotalCommission")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("AgentId");
@@ -222,6 +222,37 @@ namespace DsInsurance.Migrations
                     b.ToTable("Customers");
                 });
 
+            modelBuilder.Entity("DsInsurance.Models.Document", b =>
+                {
+                    b.Property<Guid>("DocumentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("DocumentName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsVerified")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("DocumentId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.ToTable("Documents");
+                });
+
             modelBuilder.Entity("DsInsurance.Models.Employee", b =>
                 {
                     b.Property<Guid>("EmployeeId")
@@ -278,6 +309,9 @@ namespace DsInsurance.Migrations
                     b.Property<DateTime?>("PaymentDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("PolicyAccountPolicyNo")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid>("PolicyNo")
                         .HasColumnType("uniqueidentifier");
 
@@ -287,9 +321,9 @@ namespace DsInsurance.Migrations
 
                     b.HasKey("InstallmentId");
 
-                    b.HasIndex("PolicyNo");
+                    b.HasIndex("PolicyAccountPolicyNo");
 
-                    b.ToTable("Installment");
+                    b.ToTable("Installments");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.InsurancePlan", b =>
@@ -314,6 +348,9 @@ namespace DsInsurance.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.HasKey("PlanId");
+
+                    b.HasIndex("PlanName")
+                        .IsUnique();
 
                     b.ToTable("InsurancePlans");
                 });
@@ -355,7 +392,7 @@ namespace DsInsurance.Migrations
                     b.Property<int>("MinPolicyTerm")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("PlanId")
+                    b.Property<Guid>("PlanId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<float>("ProfitRatio")
@@ -426,11 +463,14 @@ namespace DsInsurance.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AgentId")
+                    b.Property<Guid?>("AgentId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("AgentId1")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("AppliedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("CancellationDate")
                         .HasColumnType("datetime2");
@@ -447,23 +487,17 @@ namespace DsInsurance.Migrations
                     b.Property<bool>("IsApproved")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("IssueDate")
+                    b.Property<DateTime?>("IssueDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("MaturityDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("PolicyNumber")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PolicyNumber"));
-
                     b.Property<int>("PolicyTerm")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("PremiumAmount")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("PremiumAmount")
+                        .HasColumnType("float");
 
                     b.Property<string>("PremiumType")
                         .IsRequired()
@@ -522,7 +556,7 @@ namespace DsInsurance.Migrations
 
                     b.HasIndex("PolicyNo");
 
-                    b.ToTable("PolicyCoverage");
+                    b.ToTable("PolicyCoverages");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.PolicyTransaction", b =>
@@ -551,7 +585,7 @@ namespace DsInsurance.Migrations
 
                     b.HasIndex("PolicyNo");
 
-                    b.ToTable("PolicyTransaction");
+                    b.ToTable("PolicyTransactions");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.Role", b =>
@@ -674,9 +708,7 @@ namespace DsInsurance.Migrations
                 {
                     b.HasOne("DsInsurance.Models.Address", "Address")
                         .WithMany()
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AddressId");
 
                     b.HasOne("DsInsurance.Models.User", "User")
                         .WithMany()
@@ -723,6 +755,13 @@ namespace DsInsurance.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("DsInsurance.Models.Document", b =>
+                {
+                    b.HasOne("DsInsurance.Models.Customer", null)
+                        .WithMany("Documents")
+                        .HasForeignKey("CustomerId");
+                });
+
             modelBuilder.Entity("DsInsurance.Models.Employee", b =>
                 {
                     b.HasOne("DsInsurance.Models.User", "User")
@@ -736,25 +775,22 @@ namespace DsInsurance.Migrations
 
             modelBuilder.Entity("DsInsurance.Models.Installment", b =>
                 {
-                    b.HasOne("DsInsurance.Models.PolicyAccount", "PolicyAccount")
+                    b.HasOne("DsInsurance.Models.PolicyAccount", null)
                         .WithMany("Installments")
-                        .HasForeignKey("PolicyNo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PolicyAccount");
+                        .HasForeignKey("PolicyAccountPolicyNo");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.InsuranceScheme", b =>
                 {
                     b.HasOne("DsInsurance.Models.InsurancePlan", "InsurancePlan")
-                        .WithMany("InsuranceSchemes")
+                        .WithMany()
                         .HasForeignKey("InsurancePlanPlanId");
 
                     b.HasOne("DsInsurance.Models.InsurancePlan", null)
                         .WithMany()
                         .HasForeignKey("PlanId")
-                        .OnDelete(DeleteBehavior.NoAction);
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
 
                     b.Navigation("InsurancePlan");
                 });
@@ -762,7 +798,7 @@ namespace DsInsurance.Migrations
             modelBuilder.Entity("DsInsurance.Models.Nominee", b =>
                 {
                     b.HasOne("DsInsurance.Models.PolicyAccount", null)
-                        .WithMany("Nomines")
+                        .WithMany("Nominees")
                         .HasForeignKey("PolicyAccountPolicyNo");
                 });
 
@@ -771,8 +807,7 @@ namespace DsInsurance.Migrations
                     b.HasOne("DsInsurance.Models.Agent", "Agent")
                         .WithMany()
                         .HasForeignKey("AgentId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("DsInsurance.Models.Agent", null)
                         .WithMany("PolicyAccounts")
@@ -842,16 +877,16 @@ namespace DsInsurance.Migrations
                     b.Navigation("Addresses");
                 });
 
-            modelBuilder.Entity("DsInsurance.Models.InsurancePlan", b =>
+            modelBuilder.Entity("DsInsurance.Models.Customer", b =>
                 {
-                    b.Navigation("InsuranceSchemes");
+                    b.Navigation("Documents");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.PolicyAccount", b =>
                 {
                     b.Navigation("Installments");
 
-                    b.Navigation("Nomines");
+                    b.Navigation("Nominees");
 
                     b.Navigation("PolicyCoverages");
 

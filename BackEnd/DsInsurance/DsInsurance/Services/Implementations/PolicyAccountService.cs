@@ -28,7 +28,7 @@ namespace DsInsurance.Services.Implementations
                 .Include(pa => pa.PolicyCoverages)
                 .Include(pa => pa.Installments)
                 .Include(pa => pa.PolicyTransactions)
-                .Include(pa => pa.Nomines)
+                .Include(pa => pa.Nominees)
                 .ToList();
 
             if (!policyAccounts.Any())
@@ -46,7 +46,7 @@ namespace DsInsurance.Services.Implementations
                 .Include(pa => pa.PolicyCoverages)
                 .Include(pa => pa.Installments)
                 .Include(pa => pa.PolicyTransactions)
-                .Include(pa => pa.Nomines)
+                .Include(pa => pa.Nominees)
                 .FirstOrDefault(pa => pa.PolicyNo == policyAccountId);
 
             if (policyAccount == null)
@@ -55,6 +55,21 @@ namespace DsInsurance.Services.Implementations
             return _mapper.Map<PolicyAccountDto>(policyAccount);
         }
 
+        public bool ChangePolicyStatus(PolicyApprovedDto policyApprovedDto)
+        {
+               var existingPolicyAccount = _policyAccountRepository.GetAll()
+                .AsNoTracking().FirstOrDefault(policy => policy.PolicyNo == policyApprovedDto.PolicyNo);
+            if (existingPolicyAccount == null)
+                throw new NotFoundException("Policy");
+            if(policyApprovedDto.IssueDate != null)
+            existingPolicyAccount.IssueDate = policyApprovedDto.IssueDate;
+            existingPolicyAccount.Status = policyApprovedDto.Status;
+            existingPolicyAccount.IsApproved = (bool) policyApprovedDto.IsApproved;
+            if (policyApprovedDto.MaturityDate != null)
+                existingPolicyAccount.MaturityDate = (DateTime)policyApprovedDto.MaturityDate;
+            _policyAccountRepository.Update(existingPolicyAccount); 
+            return true;
+        }
         public Guid AddPolicyAccount(PolicyAccountDto policyAccountDto)
         {
             var policyAccount = _mapper.Map<PolicyAccount>(policyAccountDto);

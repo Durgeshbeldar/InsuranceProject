@@ -7,14 +7,11 @@ namespace DsInsurance.DTOs
         // Primary Key
         public Guid? PolicyNo { get; set; } // Nullable because it is not required during creation
 
-        // Auto-generated Policy Number
-        public int? PolicyNumber { get; set; } // Nullable to allow for new records where it's not set
 
         // Foreign Keys
         [Required(ErrorMessage = "Customer ID is required.")]
         public Guid? CustomerId { get; set; }
 
-        [Required(ErrorMessage = "Agent ID is required.")]
         public Guid? AgentId { get; set; }
 
         [Required(ErrorMessage = "Insurance Scheme ID is required.")]
@@ -35,19 +32,21 @@ namespace DsInsurance.DTOs
 
         [Required(ErrorMessage = "Premium Amount is required.")]
         [Range(1, double.MaxValue, ErrorMessage = "Premium Amount must be a positive value.")]
-        public decimal? PremiumAmount { get; set; }
+        public double? PremiumAmount { get; set; }
 
-        [Required(ErrorMessage = "Total Paid Amount is required.")]
+    
         [Range(0, double.MaxValue, ErrorMessage = "Total Paid Amount cannot be negative.")]
-        public decimal? TotalPaidAmount { get; set; } = 0; // Default to 0
+        public decimal TotalPaidAmount { get; set; } = 0; // Default to 0
 
         [Range(0, double.MaxValue, ErrorMessage = "Installment Amount cannot be negative.")]
         public decimal? InstallmentAmount { get; set; }
 
-        [Required(ErrorMessage = "Approval status is required.")]
-        public bool? IsApproved { get; set; } = false; // Default to false
+     
+        public bool IsApproved { get; set; } = false; // Default to false
 
-        [Required(ErrorMessage = "Issue Date is required.")]
+        [Required (ErrorMessage ="Issue Date is required.")]
+        public DateTime AppliedDate { get; set; }
+
         public DateTime? IssueDate { get; set; }
 
         public DateTime? CancellationDate { get; set; }
@@ -59,7 +58,7 @@ namespace DsInsurance.DTOs
         [StringLength(20, ErrorMessage = "Status cannot exceed 20 characters.")]
         public string Status { get; set; } // Enum: Active, Lapsed, Surrendered
 
-        public bool? IsActive { get; set; } = true;
+        public bool IsActive { get; set; } = true;
 
         // Navigation Properties (For Output)
         public CustomerDto? Customer { get; set; }

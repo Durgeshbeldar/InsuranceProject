@@ -4,6 +4,7 @@ using DsInsurance.Exceptions;
 using DsInsurance.Models;
 using DsInsurance.Repositories.Interfaces;
 using DsInsurance.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DsInsurance.Services.Implementations
 {
@@ -20,13 +21,23 @@ namespace DsInsurance.Services.Implementations
 
         public List<CustomerDto> GetAllCustomers()
         {
-            var customers = _customerRepository.GetAll().ToList();
+            var customers = _customerRepository.GetAll().Include(c=> c.Documents).ToList();
             if (!customers.Any())
                 throw new NotFoundException("Customers");
 
             return _mapper.Map<List<CustomerDto>>(customers);
         }
 
+        public bool ChangeKycStatus(VerifyCustomerDto verifyCustomerDto)
+        {
+            var customer = _customerRepository.GetAll().AsNoTracking().
+                FirstOrDefault(c => c.CustomerId == verifyCustomerDto.CustomerId);
+            if (customer == null)
+                throw new NotFoundException("Customer");
+            customer.KycVerified = verifyCustomerDto.KycVerified;
+            _customerRepository.Update(customer);
+            return true;
+        }
         public CustomerDto GetCustomerById(Guid customerId)
         {
             var customer = _customerRepository.GetById(customerId);
@@ -45,7 +56,9 @@ namespace DsInsurance.Services.Implementations
 
         public void UpdateCustomer(CustomerDto customerDto)
         {
-            var existingCustomer = _customerRepository.GetById(customerDto.CustomerId);
+            var existingCustomer = _customerRepository.GetAll()
+                .AsNoTracking().FirstOrDefault
+                (c => c.CustomerId == customerDto.CustomerId);
             if (existingCustomer == null)
                 throw new NotFoundException("Customer");
 

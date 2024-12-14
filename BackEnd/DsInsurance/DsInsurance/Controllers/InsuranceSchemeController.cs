@@ -37,6 +37,18 @@ namespace DsInsurance.Controllers
                 Data = scheme
             });
         }
+        [HttpGet("/Plan/{planId}")]
+        public IActionResult GetSchemeByPlanId(Guid planId)
+        {
+            var schemes = _schemeService.getSchemesByPlanId(planId);
+            return Ok(new
+            {
+                Message = "Insurance schemes retrieved successfully.",
+                Data = schemes
+            });
+        }
+
+
 
         [HttpPost]
         public IActionResult AddScheme(InsuranceSchemeDto schemeDto)

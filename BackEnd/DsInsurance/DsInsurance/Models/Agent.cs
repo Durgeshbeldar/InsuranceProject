@@ -24,15 +24,15 @@ namespace DsInsurance.Models
         public string Gender { get; set; }
 
         [ForeignKey("Address")]
-        public Guid AddressId { get; set; }
+        public Guid? AddressId { get; set; }
 
-        public bool KycVerified { get; set; }
+        public bool? KycVerified { get; set; } = false;
 
-        public decimal TotalCommission { get; set; }
+        public decimal? TotalCommission { get; set; } = 0;
 
-        public float Rating { get; set; } // Can Show The Ratings of Agent
+        public float? Rating { get; set; } = 0; // Can Show The Ratings of Agent
 
-        public DateTime ActiveSince { get; set; }
+        public DateTime? ActiveSince { get; set; } = DateTime.UtcNow;
 
         // Navigation Properties
         public User? User { get; set; }

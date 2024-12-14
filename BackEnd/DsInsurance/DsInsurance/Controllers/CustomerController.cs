@@ -49,6 +49,15 @@ namespace DsInsurance.Controllers
             });
         }
 
+        [HttpPut("Kyc")]
+        public IActionResult ChangeCustomerKycStatus(VerifyCustomerDto verifyCustomerDto)
+        {
+            var isChanged = _customerService.ChangeKycStatus(verifyCustomerDto);
+            return Ok(new {Message = "Customer Kyc Status is Changed"
+            , isChange = isChanged});
+        }
+
+
         [HttpPut]
         public IActionResult UpdateCustomer(CustomerDto customerDto)
         {

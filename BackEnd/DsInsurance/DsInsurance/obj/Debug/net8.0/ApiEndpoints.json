@@ -370,6 +370,96 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DsInsurance.Controllers.CustomerController",
+    "Method": "ChangeCustomerKycStatus",
+    "RelativePath": "api/Customer/Kyc",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "verifyCustomerDto",
+        "Type": "DsInsurance.DTOs.VerifyCustomerDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.DocumentController",
+    "Method": "GetAllDocuments",
+    "RelativePath": "api/Document",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.DocumentController",
+    "Method": "AddDocument",
+    "RelativePath": "api/Document",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "documentDto",
+        "Type": "DsInsurance.DTOs.DocumentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.DocumentController",
+    "Method": "UpdateDocument",
+    "RelativePath": "api/Document",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "documentDto",
+        "Type": "DsInsurance.DTOs.DocumentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.DocumentController",
+    "Method": "GetDocumentById",
+    "RelativePath": "api/Document/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.DocumentController",
+    "Method": "DeleteDocument",
+    "RelativePath": "api/Document/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DsInsurance.Controllers.EmployeeController",
     "Method": "GetAllEmployees",
     "RelativePath": "api/Employee",
@@ -575,6 +665,64 @@
         "Name": "file",
         "Type": "Microsoft.AspNetCore.Http.IFormFile",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.InstallmentController",
+    "Method": "GetAllInstallments",
+    "RelativePath": "api/Installment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.InstallmentController",
+    "Method": "AddInstallment",
+    "RelativePath": "api/Installment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "installmentDto",
+        "Type": "DsInsurance.DTOs.InstallmentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.InstallmentController",
+    "Method": "UpdateInstallment",
+    "RelativePath": "api/Installment",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "installmentDto",
+        "Type": "DsInsurance.DTOs.InstallmentDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.InstallmentController",
+    "Method": "GetInstallmentById",
+    "RelativePath": "api/Installment/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -876,6 +1024,122 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DsInsurance.Controllers.PolicyCoverageController",
+    "Method": "GetAllPolicyCoverages",
+    "RelativePath": "api/PolicyCoverage",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyCoverageController",
+    "Method": "AddPolicyCoverage",
+    "RelativePath": "api/PolicyCoverage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "coverageDto",
+        "Type": "DsInsurance.DTOs.PolicyCoverageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyCoverageController",
+    "Method": "UpdatePolicyCoverage",
+    "RelativePath": "api/PolicyCoverage",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "coverageDto",
+        "Type": "DsInsurance.DTOs.PolicyCoverageDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyCoverageController",
+    "Method": "GetPolicyCoverageById",
+    "RelativePath": "api/PolicyCoverage/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyTransactionController",
+    "Method": "GetAllTransactions",
+    "RelativePath": "api/PolicyTransaction",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyTransactionController",
+    "Method": "AddTransaction",
+    "RelativePath": "api/PolicyTransaction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "transactionDto",
+        "Type": "DsInsurance.DTOs.PolicyTransactionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyTransactionController",
+    "Method": "UpdateTransaction",
+    "RelativePath": "api/PolicyTransaction",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "transactionDto",
+        "Type": "DsInsurance.DTOs.PolicyTransactionDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyTransactionController",
+    "Method": "GetTransactionById",
+    "RelativePath": "api/PolicyTransaction/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DsInsurance.Controllers.RoleController",
     "Method": "GetAllRoles",
     "RelativePath": "api/Role",
@@ -1130,6 +1394,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DsInsurance.Controllers.InsuranceSchemeController",
+    "Method": "GetSchemeByPlanId",
+    "RelativePath": "Plan/{planId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "planId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DsInsurance.Controllers.CityController",
     "Method": "GetCityByStateId",
     "RelativePath": "State/{stateId}",
@@ -1140,6 +1420,22 @@
       {
         "Name": "stateId",
         "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyAccountController",
+    "Method": "ChangePolicyStatus",
+    "RelativePath": "Status",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "policyApprovedDto",
+        "Type": "DsInsurance.DTOs.PolicyApprovedDto",
         "IsRequired": true
       }
     ],

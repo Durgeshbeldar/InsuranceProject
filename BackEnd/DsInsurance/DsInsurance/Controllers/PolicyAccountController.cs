@@ -49,6 +49,18 @@ namespace DsInsurance.Controllers
             });
         }
 
+        [HttpPut("/Status")]
+        public IActionResult ChangePolicyStatus (PolicyApprovedDto policyApprovedDto)
+        {
+            var isChanged = _policyAccountService.ChangePolicyStatus(policyApprovedDto);
+            return Ok(new
+            {
+                Message = "Policy Status is Changed",
+                IsChanged = isChanged
+            });
+
+        }
+
         [HttpPut]
         public IActionResult UpdatePolicyAccount(PolicyAccountDto policyAccountDto)
         {
