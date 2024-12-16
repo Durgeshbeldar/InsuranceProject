@@ -63,5 +63,16 @@ namespace DsInsurance.Services.Implementations
             document.IsVerified = false; // Soft Delete (Optional)
             _documentRepository.Update(document);
         }
+
+        public void AddBulkDocuments(List<DocumentDto> documentDtos)
+        {
+            if (documentDtos == null || !documentDtos.Any())
+                throw new ArgumentException("Document list is empty");
+
+            var documents = _mapper.Map<List<Document>>(documentDtos);
+
+            // Bulk Insert for better performance
+            _documentRepository.AddRange(documents);
+        }
     }
 }

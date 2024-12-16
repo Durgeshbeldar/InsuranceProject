@@ -15,11 +15,10 @@ namespace DsInsurance.Models
         [Required]
         public string FilePath { get; set; }
 
+        public string? Message { get; set; }
         public bool IsVerified { get; set; } = false;
 
         [ForeignKey("User")]
         public Guid UserId { get; set; } 
-
-       
     }
 }

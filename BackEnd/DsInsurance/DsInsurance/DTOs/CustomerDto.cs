@@ -33,7 +33,7 @@ namespace DsInsurance.DTOs
         public bool? KycVerified { get; set; } = false;
 
         public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
-        public ICollection<Document> Documents { get; set; }
+        public ICollection<Document>? Documents { get; set; }
 
     }
 }

@@ -50,6 +50,9 @@ namespace DsInsurance.Mappers
             CreateMap<Installment, InstallmentDto>();
             CreateMap<InstallmentDto, Installment>();
 
+            CreateMap<WithdrawalRequest, WithdrawalRequestDto>();
+            CreateMap<WithdrawalRequestDto, WithdrawalRequest>();
+
             CreateMap<Document, DocumentDto>();
             CreateMap<DocumentDto, Document>();
 

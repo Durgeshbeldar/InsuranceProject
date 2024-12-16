@@ -13,6 +13,7 @@ namespace DsInsurance.DTOs
         [Required(ErrorMessage = "Document content is required.")]
         public string FilePath { get; set; }
 
+        public string? Message { get; set; } // Used for coversation between emp to customer
         public bool IsVerified { get; set; } = false;
 
         [Required(ErrorMessage = "UploadedBy User ID is required.")]

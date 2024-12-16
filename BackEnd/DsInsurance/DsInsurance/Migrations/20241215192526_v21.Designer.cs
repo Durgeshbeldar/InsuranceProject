@@ -4,6 +4,7 @@ using DsInsurance.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DsInsurance.Migrations
 {
     [DbContext(typeof(InsuranceContext))]
-    partial class InsuranceContextModelSnapshot : ModelSnapshot
+    [Migration("20241215192526_v21")]
+    partial class v21
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -141,9 +144,6 @@ namespace DsInsurance.Migrations
                         .HasColumnType("real");
 
                     b.Property<decimal?>("TotalCommission")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal?>("WalletBalance")
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("AgentId");
@@ -426,9 +426,6 @@ namespace DsInsurance.Migrations
 
                     b.HasIndex("PlanId");
 
-                    b.HasIndex("SchemeName")
-                        .IsUnique();
-
                     b.ToTable("InsuranceSchemes");
                 });
 
@@ -691,32 +688,6 @@ namespace DsInsurance.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("DsInsurance.Models.WithdrawalRequest", b =>
-                {
-                    b.Property<Guid>("WithdrawalRequestId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AgentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("RequestDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("WithdrawalRequestId");
-
-                    b.HasIndex("AgentId");
-
-                    b.ToTable("WithdrawalRequests");
-                });
-
             modelBuilder.Entity("DsInsurance.Models.Address", b =>
                 {
                     b.HasOne("DsInsurance.Models.City", "City")
@@ -918,17 +889,6 @@ namespace DsInsurance.Migrations
                         .IsRequired();
 
                     b.Navigation("Role");
-                });
-
-            modelBuilder.Entity("DsInsurance.Models.WithdrawalRequest", b =>
-                {
-                    b.HasOne("DsInsurance.Models.Agent", "Agent")
-                        .WithMany()
-                        .HasForeignKey("AgentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Agent");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.Agent", b =>

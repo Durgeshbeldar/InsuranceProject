@@ -9,5 +9,6 @@ namespace DsInsurance.Services.Interfaces
         Guid AddDocument(DocumentDto documentDto);
         void UpdateDocument(DocumentDto documentDto);
         void DeleteDocument(Guid documentId);
+        public void AddBulkDocuments(List<DocumentDto> documentDtos);
     }
 }

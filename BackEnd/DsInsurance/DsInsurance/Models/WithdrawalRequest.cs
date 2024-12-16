@@ -9,18 +9,18 @@ namespace DsInsurance.Models
         public Guid WithdrawalRequestId { get; set; }
 
         [ForeignKey("Agent")]
-        public int AgentId { get; set; }
+        public Guid AgentId { get; set; }
 
         [Required]
         public decimal Amount { get; set; }
 
         [Required]
-        public string Status { get; set; } // Enum: Pending, Approved, Rejected
+        public string Status { get; set; } = "Pending"; // Enum: Pending, Approved, Rejected
 
         [Required]
-        public DateTime RequestDate { get; set; }
+        public DateTime RequestDate { get; set; } = DateTime.Now;
 
         // Navigation Properties
-        public Agent Agent { get; set; }
+        public Agent? Agent { get; set; }
     }
 }

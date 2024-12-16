@@ -7,6 +7,7 @@
         IQueryable<T> GetAll();
         T GetById(Guid id);
         T Update(T entity);
+        public void AddRange(IEnumerable<T> entities);
     }
 
 }

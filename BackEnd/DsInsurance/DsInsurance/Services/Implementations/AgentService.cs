@@ -4,6 +4,7 @@ using DsInsurance.Exceptions;
 using DsInsurance.Models;
 using DsInsurance.Repositories.Interfaces;
 using DsInsurance.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DsInsurance.Services.Implementations
 {
@@ -45,7 +46,7 @@ namespace DsInsurance.Services.Implementations
 
         public void UpdateAgent(AgentDto agentDto)
         {
-            var existingAgent = _agentRepository.GetById(agentDto.AgentId);
+            var existingAgent = _agentRepository.GetAll().AsNoTracking().Where(a=> a.AgentId == agentDto.AgentId);
             if (existingAgent == null)
                 throw new NotFoundException("Agent");
 

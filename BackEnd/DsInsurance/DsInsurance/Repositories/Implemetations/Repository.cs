@@ -43,5 +43,11 @@ namespace DsInsurance.Repositories.Implemetations
             _context.SaveChanges();
             return entity;
         }
+
+        public void AddRange(IEnumerable<T> entities)
+        {
+            _table.AddRange(entities);
+            _context.SaveChanges();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DsInsurance.DTOs;
+using DsInsurance.Services.Implementations;
 using DsInsurance.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -46,6 +47,16 @@ namespace DsInsurance.Controllers
             {
                 Message = "Document added successfully.",
                 DocumentId = documentId
+            });
+        }
+
+        [HttpPost("bulk-add")]
+        public IActionResult AddBulkDocuments([FromBody] List<DocumentDto> documentDtos)
+        {
+            _documentService.AddBulkDocuments(documentDtos);
+            return Ok(new
+            {
+                Message = "Documents added successfully."
             });
         }
 

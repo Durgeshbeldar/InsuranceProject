@@ -30,5 +30,6 @@ namespace DsInsurance.DTOs
 
         public string? RoleName { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public ICollection<Document>? Documents { get; set; }
     }
 }

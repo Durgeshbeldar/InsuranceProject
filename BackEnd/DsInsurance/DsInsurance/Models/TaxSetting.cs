@@ -8,8 +8,8 @@ namespace DsInsurance.Models
         [Key]
         public Guid TaxId { get; set; }
 
-        [ForeignKey("PolicyAccount")]
-        public int PolicyNo { get; set; }
+        //[ForeignKey("PolicyAccount")]
+        //public int PolicyNo { get; set; }
 
         [Required]
         public float TaxPercentage { get; set; }
@@ -17,7 +17,10 @@ namespace DsInsurance.Models
         [Required]
         public DateTime UpdatedAt { get; set; }
 
+
+  
+
         // Navigation Properties
-        public PolicyAccount PolicyAccount { get; set; }
+        //public PolicyAccount PolicyAccount { get; set; }
     }
 }

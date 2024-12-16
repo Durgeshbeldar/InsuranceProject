@@ -29,6 +29,7 @@ namespace DsInsurance.Models
         public bool? KycVerified { get; set; } = false;
 
         public decimal? TotalCommission { get; set; } = 0;
+        public decimal? WalletBalance { get; set; } = 0;
 
         public float? Rating { get; set; } = 0; // Can Show The Ratings of Agent
 
@@ -39,6 +40,7 @@ namespace DsInsurance.Models
         public Address? Address { get; set; }
         public ICollection<PolicyAccount>? PolicyAccounts { get; set; }
 
+        
         public ICollection<Customer>? Customers { get; set; }
     }
 }

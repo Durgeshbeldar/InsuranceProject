@@ -65,7 +65,7 @@ namespace DsInsurance.Services.Implementations
         }
         public List<UserDto> GetAllUsers()
         {
-            var users = _userRepository.GetAll().ToList();
+            var users = _userRepository.GetAll().Include(u => u.Documents).ToList();
             if (!users.Any())
                 throw new NotFoundException("Users");
 
@@ -74,7 +74,7 @@ namespace DsInsurance.Services.Implementations
 
         public UserDto GetUserById(Guid userId)
         {
-            var user = _userRepository.GetById(userId);
+            var user = _userRepository.GetAll().Include(u=>u.Documents).FirstOrDefault(u=> u.UserId == userId);
             if (user == null)
                 throw new NotFoundException("User");
 

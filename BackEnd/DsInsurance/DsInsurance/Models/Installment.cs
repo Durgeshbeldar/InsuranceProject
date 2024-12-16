@@ -19,8 +19,10 @@ namespace DsInsurance.Models
         [Required]
         public decimal AmountDue { get; set; }
 
+        public string? PaymentMethod { get; set; }
+
         [Required]
-        public string Status { get; set; } = "Pending";
+        public string Status { get; set; } = "Unpaid"; // Unpaid, Paid
 
     }
 }

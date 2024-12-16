@@ -17,6 +17,7 @@ namespace DsInsurance.DTOs
         [Required(ErrorMessage = "Amount due is required.")]
         [Range(0.01, double.MaxValue, ErrorMessage = "Amount due must be greater than zero.")]
         public decimal AmountDue { get; set; }
+        public string? PaymentMethod { get; set; }
 
         [Required(ErrorMessage = "Status is required.")]
         [StringLength(50, ErrorMessage = "Status cannot exceed 50 characters.")]

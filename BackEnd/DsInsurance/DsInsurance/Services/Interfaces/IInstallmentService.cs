@@ -8,5 +8,7 @@ namespace DsInsurance.Services.Interfaces
         InstallmentDto GetInstallmentById(Guid id);
         Guid AddInstallment(InstallmentDto installmentDto);
         void UpdateInstallment(InstallmentDto installmentDto);
+        void AddBulkInstallments(List<InstallmentDto> installmentDtos);
+        public List<InstallmentDto> GetInstallmentsByPolicyId(Guid policyId);
     }
 }

@@ -32,5 +32,6 @@ namespace DsInsurance.Models
 
         // Navigation Properties
         public Role? Role { get; set; }
+        public ICollection<Document>? Documents { get; set; }
     }
 }

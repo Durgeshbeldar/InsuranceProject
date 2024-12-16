@@ -11,6 +11,11 @@ namespace DsInsurance.Models
         [ForeignKey("PolicyAccount")]
         public Guid PolicyNo { get; set; }
 
+        [ForeignKey("Installment")]
+        public Guid? InstallmentId { get; set; }
+
+        public string? PaymentMethod { get; set; }
+
         [Required]
         public string TransactionType { get; set; } // Enum: Issuance, Renewal, Cancellation, Refund
 
@@ -22,6 +27,8 @@ namespace DsInsurance.Models
 
         // Information Related to Policy Transaction 
         public string? Description { get; set; }
+
+        public string? Status { get; set; }
 
         // Navigation Properties
         public PolicyAccount? PolicyAccount { get; set; }

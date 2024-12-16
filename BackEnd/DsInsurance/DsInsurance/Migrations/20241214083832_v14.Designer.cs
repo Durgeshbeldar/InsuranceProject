@@ -4,6 +4,7 @@ using DsInsurance.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DsInsurance.Migrations
 {
     [DbContext(typeof(InsuranceContext))]
-    partial class InsuranceContextModelSnapshot : ModelSnapshot
+    [Migration("20241214083832_v14")]
+    partial class v14
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -143,9 +146,6 @@ namespace DsInsurance.Migrations
                     b.Property<decimal?>("TotalCommission")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal?>("WalletBalance")
-                        .HasColumnType("decimal(18,2)");
-
                     b.HasKey("AgentId");
 
                     b.HasIndex("AddressId");
@@ -246,17 +246,12 @@ namespace DsInsurance.Migrations
                     b.Property<bool>("IsVerified")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Message")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("DocumentId");
 
                     b.HasIndex("CustomerId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Documents");
                 });
@@ -425,9 +420,6 @@ namespace DsInsurance.Migrations
                     b.HasIndex("InsurancePlanPlanId");
 
                     b.HasIndex("PlanId");
-
-                    b.HasIndex("SchemeName")
-                        .IsUnique();
 
                     b.ToTable("InsuranceSchemes");
                 });
@@ -691,32 +683,6 @@ namespace DsInsurance.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("DsInsurance.Models.WithdrawalRequest", b =>
-                {
-                    b.Property<Guid>("WithdrawalRequestId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("AgentId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("RequestDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("WithdrawalRequestId");
-
-                    b.HasIndex("AgentId");
-
-                    b.ToTable("WithdrawalRequests");
-                });
-
             modelBuilder.Entity("DsInsurance.Models.Address", b =>
                 {
                     b.HasOne("DsInsurance.Models.City", "City")
@@ -809,12 +775,6 @@ namespace DsInsurance.Migrations
                     b.HasOne("DsInsurance.Models.Customer", null)
                         .WithMany("Documents")
                         .HasForeignKey("CustomerId");
-
-                    b.HasOne("DsInsurance.Models.User", null)
-                        .WithMany("Documents")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("DsInsurance.Models.Employee", b =>
@@ -920,17 +880,6 @@ namespace DsInsurance.Migrations
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("DsInsurance.Models.WithdrawalRequest", b =>
-                {
-                    b.HasOne("DsInsurance.Models.Agent", "Agent")
-                        .WithMany()
-                        .HasForeignKey("AgentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Agent");
-                });
-
             modelBuilder.Entity("DsInsurance.Models.Agent", b =>
                 {
                     b.Navigation("Customers");
@@ -967,11 +916,6 @@ namespace DsInsurance.Migrations
             modelBuilder.Entity("DsInsurance.Models.State", b =>
                 {
                     b.Navigation("Cities");
-                });
-
-            modelBuilder.Entity("DsInsurance.Models.User", b =>
-                {
-                    b.Navigation("Documents");
                 });
 #pragma warning restore 612, 618
         }

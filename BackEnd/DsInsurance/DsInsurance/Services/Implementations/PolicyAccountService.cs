@@ -22,7 +22,24 @@ namespace DsInsurance.Services.Implementations
         public List<PolicyAccountDto> GetAllPolicyAccounts()
         {
             var policyAccounts = _policyAccountRepository.GetAll()
-                .Include(pa => pa.Customer)
+                .Include(pa => pa.Customer).ThenInclude(customer => customer.Documents)
+                .Include(pa => pa.Agent)
+                .Include(pa => pa.InsuranceScheme)
+                .Include(pa => pa.PolicyCoverages)
+                .Include(pa => pa.Installments)
+                .Include(pa => pa.PolicyTransactions)
+                .Include(pa => pa.Nominees)
+                .ToList();
+
+            if (!policyAccounts.Any())
+                throw new NotFoundException("PolicyAccounts");
+
+            return _mapper.Map<List<PolicyAccountDto>>(policyAccounts);
+        }
+        public List<PolicyAccountDto> GetAllPolicyAccountsByCustomerId(Guid customerId)
+        {
+            var policyAccounts = _policyAccountRepository.GetAll().Where(pa =>pa.CustomerId == customerId)
+                .Include(pa => pa.Customer).ThenInclude(c => c.Documents)
                 .Include(pa => pa.Agent)
                 .Include(pa => pa.InsuranceScheme)
                 .Include(pa => pa.PolicyCoverages)
@@ -70,13 +87,15 @@ namespace DsInsurance.Services.Implementations
             _policyAccountRepository.Update(existingPolicyAccount); 
             return true;
         }
+        
+        
         public Guid AddPolicyAccount(PolicyAccountDto policyAccountDto)
         {
             var policyAccount = _mapper.Map<PolicyAccount>(policyAccountDto);
             _policyAccountRepository.Add(policyAccount);
             return policyAccount.PolicyNo;
         }
-
+        
         public void UpdatePolicyAccount(PolicyAccountDto policyAccountDto)
         {
             var updatedPolicyAccount = _mapper.Map<PolicyAccount>(policyAccountDto);

@@ -10,5 +10,6 @@ namespace DsInsurance.Services.Interfaces
         void UpdatePolicyAccount(PolicyAccountDto policyAccountDto);
         void DeletePolicyAccount(Guid policyAccountId);
         public bool ChangePolicyStatus(PolicyApprovedDto policyApprovedDto);
+        public List<PolicyAccountDto> GetAllPolicyAccountsByCustomerId(Guid customerId);
     }
 }

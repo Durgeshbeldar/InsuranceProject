@@ -14,9 +14,9 @@ namespace DsInsurance.DTOs
         public decimal Amount { get; set; }
 
         [Required(ErrorMessage = "Status is required.")]
-        public string Status { get; set; }
+        public string? Status { get; set; }
 
         [Required(ErrorMessage = "Request date is required.")]
-        public DateTime RequestDate { get; set; }
+        public DateTime RequestDate { get; set; }  = DateTime.Now;
     }
 }

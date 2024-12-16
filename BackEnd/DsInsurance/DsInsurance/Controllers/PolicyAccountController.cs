@@ -27,6 +27,18 @@ namespace DsInsurance.Controllers
             });
         }
 
+        [HttpGet("Customer/{customerId}")]
+
+        public IActionResult GetPolicyAccountsByCustomerId(Guid customerId)
+        {
+            var policyAccounts = _policyAccountService.GetAllPolicyAccountsByCustomerId(customerId);
+            return Ok(new
+            {
+                Message = "Policy accounts retrieved successfully.",
+                Data = policyAccounts
+            });
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetPolicyAccountById(Guid id)
         {

@@ -460,6 +460,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DsInsurance.Controllers.DocumentController",
+    "Method": "AddBulkDocuments",
+    "RelativePath": "api/Document/bulk-add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "documentDtos",
+        "Type": "System.Collections.Generic.List\u00601[[DsInsurance.DTOs.DocumentDto, DsInsurance, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DsInsurance.Controllers.EmployeeController",
     "Method": "GetAllEmployees",
     "RelativePath": "api/Employee",
@@ -721,6 +737,38 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.InstallmentController",
+    "Method": "AddBulkInstallments",
+    "RelativePath": "api/Installment/bulk-add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "installmentDtos",
+        "Type": "System.Collections.Generic.List\u00601[[DsInsurance.DTOs.InstallmentDto, DsInsurance, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.InstallmentController",
+    "Method": "GetInstallmentsByPolicyId",
+    "RelativePath": "api/Installment/PolicyAccount/{policyAccountId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "policyAccountId",
         "Type": "System.Guid",
         "IsRequired": true
       }
@@ -1017,6 +1065,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyAccountController",
+    "Method": "GetPolicyAccountsByCustomerId",
+    "RelativePath": "api/PolicyAccount/Customer/{customerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
         "Type": "System.Guid",
         "IsRequired": true
       }
@@ -1381,6 +1445,80 @@
     "ContainingType": "DsInsurance.Controllers.UserController",
     "Method": "RemoveUser",
     "RelativePath": "api/User/User/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.WithdrawalRequestController",
+    "Method": "GetAllRequests",
+    "RelativePath": "api/WithdrawalRequest",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.WithdrawalRequestController",
+    "Method": "AddWithdrawalRequest",
+    "RelativePath": "api/WithdrawalRequest",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "withdrawalRequestDto",
+        "Type": "DsInsurance.DTOs.WithdrawalRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.WithdrawalRequestController",
+    "Method": "UpdateWithdrawalRequest",
+    "RelativePath": "api/WithdrawalRequest",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "withdrawalRequestDto",
+        "Type": "DsInsurance.DTOs.WithdrawalRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.WithdrawalRequestController",
+    "Method": "GetRequestById",
+    "RelativePath": "api/WithdrawalRequest/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.WithdrawalRequestController",
+    "Method": "DeleteWithdrawalRequest",
+    "RelativePath": "api/WithdrawalRequest/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

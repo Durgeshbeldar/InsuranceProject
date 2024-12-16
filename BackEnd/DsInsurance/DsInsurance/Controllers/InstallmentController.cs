@@ -38,6 +38,13 @@ namespace DsInsurance.Controllers
             });
         }
 
+        [HttpGet("PolicyAccount/{policyAccountId}")]
+        public IActionResult GetInstallmentsByPolicyId(Guid policyAccountId)
+        {
+            var installments = _installmentService.GetInstallmentsByPolicyId(policyAccountId);
+            return Ok(installments);
+        }
+
         [HttpPost]
         public IActionResult AddInstallment(InstallmentDto installmentDto)
         {
@@ -49,6 +56,16 @@ namespace DsInsurance.Controllers
             });
         }
 
+
+        [HttpPost("bulk-add")]
+        public IActionResult AddBulkInstallments([FromBody] List<InstallmentDto> installmentDtos)
+        {
+            _installmentService.AddBulkInstallments(installmentDtos);
+            return Ok(new
+            {
+                Message = "Bulk Installments added successfully."
+            });
+        }
         [HttpPut]
         public IActionResult UpdateInstallment(InstallmentDto installmentDto)
         {

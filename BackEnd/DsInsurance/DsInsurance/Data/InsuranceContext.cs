@@ -22,6 +22,7 @@ namespace DsInsurance.Data
         public DbSet<PolicyCoverage> PolicyCoverages { get; set; }
         public DbSet<PolicyTransaction> PolicyTransactions { get; set; }
         public DbSet<Installment> Installments { get; set; }
+        public DbSet<WithdrawalRequest> WithdrawalRequests { get; set; }
 
         public DbSet<Document> Documents { get; set; }
         public InsuranceContext(DbContextOptions<InsuranceContext> options) : base(options)
@@ -83,6 +84,10 @@ namespace DsInsurance.Data
             modelBuilder.Entity<User>()
                 .HasIndex(u => u.Email)
                 .IsUnique();
+
+            modelBuilder.Entity<InsuranceScheme>()
+              .HasIndex(scheme => scheme.SchemeName)
+              .IsUnique();
 
             modelBuilder.Entity<State>()
                 .HasIndex(state=>state.Name).IsUnique();

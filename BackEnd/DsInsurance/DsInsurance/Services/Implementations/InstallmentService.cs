@@ -28,6 +28,15 @@ namespace DsInsurance.Services.Implementations
             return _mapper.Map<List<InstallmentDto>>(installments);
         }
 
+        public List<InstallmentDto> GetInstallmentsByPolicyId(Guid policyId)
+        {
+            var installments = _installmentRepository.GetAll().Where(i => i.PolicyNo == policyId).ToList();
+            if(!installments.Any())
+                throw new NotFoundException("Installments");
+
+            return _mapper.Map<List<InstallmentDto>>(installments);
+        }
+
         public InstallmentDto GetInstallmentById(Guid id)
         {
             var installment = _installmentRepository.GetById(id);
@@ -52,6 +61,16 @@ namespace DsInsurance.Services.Implementations
                 throw new NotFoundException("Installment");
 
             _installmentRepository.Update(updatedInstallment);
+        }
+        public void AddBulkInstallments(List<InstallmentDto> installmentDtos)
+        {
+            if (installmentDtos == null || !installmentDtos.Any())
+                throw new ArgumentException("Installment list is empty");
+
+            var installments = _mapper.Map<List<Installment>>(installmentDtos);
+
+            // Bulk Insert for better performance
+            _installmentRepository.AddRange(installments);
         }
     }
 }
