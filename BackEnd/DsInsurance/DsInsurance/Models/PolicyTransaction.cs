@@ -8,6 +8,9 @@ namespace DsInsurance.Models
         [Key]
         public Guid TransactionId { get; set; }
 
+        [ForeignKey("User")]
+        public Guid? UserId { get; set; }
+
         [ForeignKey("PolicyAccount")]
         public Guid PolicyNo { get; set; }
 

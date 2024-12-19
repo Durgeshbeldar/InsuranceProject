@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DsInsurance.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace DsInsurance.DTOs
 {
@@ -15,8 +16,11 @@ namespace DsInsurance.DTOs
 
         [Required(ErrorMessage = "Status is required.")]
         public string? Status { get; set; }
+        public string? ResponseMessage { get; set; }
 
         [Required(ErrorMessage = "Request date is required.")]
         public DateTime RequestDate { get; set; }  = DateTime.Now;
+
+        public Agent? Agent { get; set; }
     }
 }

@@ -1,10 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DsInsurance.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace DsInsurance.DTOs
 {
     public class PolicyTransactionDto
     {
         public Guid? TransactionId { get; set; }
+
+        public Guid? UserId { get; set; }
 
         [Required(ErrorMessage = "Policy number is required.")]
         public Guid? PolicyNo { get; set; }
@@ -28,5 +31,7 @@ namespace DsInsurance.DTOs
         public string? Status { get; set; }
 
         public string? Description { get; set; }
+
+        public PolicyAccount? PolicyAccount { get; set; }
     }
 }

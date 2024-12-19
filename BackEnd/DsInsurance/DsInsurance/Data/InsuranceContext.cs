@@ -23,6 +23,7 @@ namespace DsInsurance.Data
         public DbSet<PolicyTransaction> PolicyTransactions { get; set; }
         public DbSet<Installment> Installments { get; set; }
         public DbSet<WithdrawalRequest> WithdrawalRequests { get; set; }
+        public DbSet<CustomerQuery> CustomerQueries { get; set; }
 
         public DbSet<Document> Documents { get; set; }
         public InsuranceContext(DbContextOptions<InsuranceContext> options) : base(options)

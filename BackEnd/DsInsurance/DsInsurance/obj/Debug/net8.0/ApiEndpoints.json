@@ -386,6 +386,80 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DsInsurance.Controllers.CustomerQueryController",
+    "Method": "GetAllQueries",
+    "RelativePath": "api/CustomerQuery",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.CustomerQueryController",
+    "Method": "AddCustomerQuery",
+    "RelativePath": "api/CustomerQuery",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "queryDto",
+        "Type": "DsInsurance.DTOs.CustomerQueryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.CustomerQueryController",
+    "Method": "UpdateCustomerQuery",
+    "RelativePath": "api/CustomerQuery",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "queryDto",
+        "Type": "DsInsurance.DTOs.CustomerQueryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.CustomerQueryController",
+    "Method": "GetQueryById",
+    "RelativePath": "api/CustomerQuery/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.CustomerQueryController",
+    "Method": "DeleteCustomerQuery",
+    "RelativePath": "api/CustomerQuery/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DsInsurance.Controllers.DocumentController",
     "Method": "GetAllDocuments",
     "RelativePath": "api/Document",
@@ -1197,6 +1271,38 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyTransactionController",
+    "Method": "GetTransactionsByPolicyNo",
+    "RelativePath": "api/PolicyTransaction/Customer/{customerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.PolicyTransactionController",
+    "Method": "GetTransactionsByUserId",
+    "RelativePath": "api/PolicyTransaction/User/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
         "Type": "System.Guid",
         "IsRequired": true
       }

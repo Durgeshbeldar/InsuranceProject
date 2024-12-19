@@ -4,6 +4,7 @@ using DsInsurance.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DsInsurance.Migrations
 {
     [DbContext(typeof(InsuranceContext))]
-    partial class InsuranceContextModelSnapshot : ModelSnapshot
+    [Migration("20241218201406_v41")]
+    partial class v41
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -254,6 +257,7 @@ namespace DsInsurance.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Response")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")

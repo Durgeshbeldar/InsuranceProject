@@ -64,6 +64,7 @@ namespace DsInsurance
             builder.Services.AddTransient<IInstallmentService, InstallmentService>();
             builder.Services.AddTransient<IDocumentService, DocumentService>();
             builder.Services.AddTransient<IWithdrawRequestService, WithdrawRequestService>();
+            builder.Services.AddTransient<ICustomerQueryService, CustomerQueryService>();
 
 
 

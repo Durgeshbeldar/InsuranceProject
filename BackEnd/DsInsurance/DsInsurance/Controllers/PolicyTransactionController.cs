@@ -37,6 +37,29 @@ namespace DsInsurance.Controllers
                 Data = transaction
             });
         }
+        [HttpGet("User/{userId}")]
+        public IActionResult GetTransactionsByUserId(Guid userId)
+        {
+            var transactions = _transactionService.GetAllTransactionsByUserId(userId);
+            return Ok(
+                new
+                {
+                    Message = "Policy transactions retrieved successfully.",
+                    Data = transactions
+                });
+        }
+
+        [HttpGet("Customer/{customerId}")]
+        public IActionResult GetTransactionsByPolicyNo(Guid customerId)
+        {
+            var transactions = _transactionService.GetAllTransactionsByCustomerId(customerId);
+            return Ok(
+                new
+                {
+                    Message = "Policy transactions retrieved successfully.",
+                    Data = transactions
+                });
+        }
 
         [HttpPost]
         public IActionResult AddTransaction(PolicyTransactionDto transactionDto)

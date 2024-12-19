@@ -20,6 +20,8 @@ namespace DsInsurance.Models
         [Required]
         public DateTime RequestDate { get; set; } = DateTime.Now;
 
+        public string? ResponseMessage { get; set; }
+
         // Navigation Properties
         public Agent? Agent { get; set; }
     }

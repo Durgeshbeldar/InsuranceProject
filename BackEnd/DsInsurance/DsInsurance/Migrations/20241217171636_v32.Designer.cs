@@ -4,6 +4,7 @@ using DsInsurance.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DsInsurance.Migrations
 {
     [DbContext(typeof(InsuranceContext))]
-    partial class InsuranceContextModelSnapshot : ModelSnapshot
+    [Migration("20241217171636_v32")]
+    partial class v32
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -223,53 +226,6 @@ namespace DsInsurance.Migrations
                     b.HasIndex("AgentId");
 
                     b.ToTable("Customers");
-                });
-
-            modelBuilder.Entity("DsInsurance.Models.CustomerQuery", b =>
-                {
-                    b.Property<Guid>("QueryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("CustomerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid?>("PolicyNo")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ResolvedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("ResolvedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Response")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("QueryId");
-
-                    b.HasIndex("CustomerId");
-
-                    b.HasIndex("PolicyNo");
-
-                    b.HasIndex("ResolvedBy");
-
-                    b.ToTable("CustomerQueries");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.Document", b =>
@@ -651,9 +607,6 @@ namespace DsInsurance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("TransactionId");
 
                     b.HasIndex("PolicyNo");
@@ -855,29 +808,6 @@ namespace DsInsurance.Migrations
                     b.Navigation("Agent");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("DsInsurance.Models.CustomerQuery", b =>
-                {
-                    b.HasOne("DsInsurance.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DsInsurance.Models.PolicyAccount", "PolicyAccount")
-                        .WithMany()
-                        .HasForeignKey("PolicyNo");
-
-                    b.HasOne("DsInsurance.Models.Employee", "Employee")
-                        .WithMany()
-                        .HasForeignKey("ResolvedBy");
-
-                    b.Navigation("Customer");
-
-                    b.Navigation("Employee");
-
-                    b.Navigation("PolicyAccount");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.Document", b =>

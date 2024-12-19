@@ -27,7 +27,25 @@ namespace DsInsurance.Services.Implementations
 
             return _mapper.Map<List<PolicyTransactionDto>>(transactions);
         }
+        public List<PolicyTransactionDto> GetAllTransactionsByUserId(Guid userId)
+        {
+            var transactions = _transactionRepository.GetAll().Include(pt => pt.PolicyAccount)
+                .Where(pt=> pt.UserId == userId).ToList();
+            if (!transactions.Any())
+                throw new NotFoundException("PolicyTransactions");
 
+            return _mapper.Map<List<PolicyTransactionDto>>(transactions);
+        }
+
+        public List<PolicyTransactionDto> GetAllTransactionsByCustomerId(Guid customerId)
+        {
+            var transactions = _transactionRepository.GetAll().Include(pt => pt.PolicyAccount)
+                .Where(pt => pt.PolicyAccount.CustomerId == customerId).ToList();
+            if (!transactions.Any())
+                throw new NotFoundException("PolicyTransactions");
+
+            return _mapper.Map<List<PolicyTransactionDto>>(transactions);
+        }
         public PolicyTransactionDto GetTransactionById(Guid transactionId)
         {
             var transaction = _transactionRepository.GetById(transactionId);
@@ -43,6 +61,7 @@ namespace DsInsurance.Services.Implementations
             _transactionRepository.Add(transaction);
             return transaction.TransactionId;
         }
+
 
         public void UpdateTransaction(PolicyTransactionDto transactionDto)
         {

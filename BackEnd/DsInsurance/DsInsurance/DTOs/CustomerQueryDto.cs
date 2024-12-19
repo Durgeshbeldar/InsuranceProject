@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DsInsurance.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace DsInsurance.DTOs
 {
@@ -7,7 +8,9 @@ namespace DsInsurance.DTOs
         public Guid? QueryId { get; set; }
 
         [Required(ErrorMessage = "Customer ID is required.")]
-        public int CustomerId { get; set; }
+        public Guid CustomerId { get; set; }
+
+        public Guid? PolicyNo { get; set; }
 
         [Required(ErrorMessage = "Title is required.")]
         [StringLength(100, ErrorMessage = "Title cannot exceed 100 characters.")]
@@ -17,11 +20,17 @@ namespace DsInsurance.DTOs
 
         public string? Response { get; set; }
 
-        public int? ResolvedBy { get; set; }
+        public Guid? ResolvedBy { get; set; }
 
         [Required(ErrorMessage = "Created date is required.")]
         public DateTime CreatedAt { get; set; }
 
         public DateTime? ResolvedAt { get; set; }
+
+        public bool IsActive { get; set; } = true;
+
+        public PolicyAccount? PolicyAccount { get; set; }
+        public Customer? Customer { get; set; }
+        public Employee? Employee { get; set; }
     }
 }

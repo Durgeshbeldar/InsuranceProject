@@ -8,5 +8,7 @@ namespace DsInsurance.Services.Interfaces
         PolicyTransactionDto GetTransactionById(Guid transactionId);
         Guid AddTransaction(PolicyTransactionDto transactionDto);
         void UpdateTransaction(PolicyTransactionDto transactionDto);
+        List<PolicyTransactionDto> GetAllTransactionsByUserId(Guid userId);
+        public List<PolicyTransactionDto> GetAllTransactionsByCustomerId(Guid customerId);
     }
 }
