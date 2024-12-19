@@ -23,7 +23,7 @@ namespace DsInsurance.Models
         public string? Response { get; set; }
 
         [ForeignKey("Employee")]
-        public Guid? ResolvedBy { get; set; } // Nullable if unresolved
+        public Guid? ResolvedBy { get; set; } 
 
         [Required]
         public DateTime CreatedAt { get; set; }

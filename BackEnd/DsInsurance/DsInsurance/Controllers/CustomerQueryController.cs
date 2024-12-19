@@ -27,6 +27,18 @@ namespace DsInsurance.Controllers
             });
         }
 
+        [HttpGet("Customer/{customerId}")]
+
+        public IActionResult GetAllQueriesByCustomerId(Guid customerId)
+        {
+            var queries = _customerQueryService.GetAllQueriesCustomerId(customerId);
+            return Ok(new
+            {
+                Message = "Customer queries retrieved successfully.",
+                Data = queries
+            });
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetQueryById(Guid id)
         {

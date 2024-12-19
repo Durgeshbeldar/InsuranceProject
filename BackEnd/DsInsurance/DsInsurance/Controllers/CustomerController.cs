@@ -38,6 +38,16 @@ namespace DsInsurance.Controllers
             });
         }
 
+        [HttpGet("Agent/{agentId}")]
+        public IActionResult GetCustomersByAgentId(Guid agentId)
+        {
+            var customers = _customerService.GetCustomersByAgentId(agentId);
+            return Ok(new
+            {
+                Message = "Customers retrieved successfully.",
+                Data = customers
+            });
+        }
         [HttpPost]
         public IActionResult AddCustomer(CustomerDto customerDto)
         {

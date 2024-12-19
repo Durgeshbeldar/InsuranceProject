@@ -33,6 +33,22 @@ namespace DsInsurance.Services.Implementations
             return _mapper.Map<List<CustomerQueryDto>>(queries);
         }
 
+        public List<CustomerQueryDto> GetAllQueriesCustomerId(Guid customerId)
+        {
+            var queries = _queryRepository.GetAll()
+                .Include(q => q.Customer)
+                .Include(q => q.PolicyAccount)
+                .Include(q => q.Employee)
+                .Where(q=> q.CustomerId == customerId)
+                .ToList();
+
+            if (!queries.Any())
+                throw new NotFoundException("CustomerQueries");
+
+            return _mapper.Map<List<CustomerQueryDto>>(queries);
+        }
+
+
         public CustomerQueryDto GetQueryById(Guid queryId)
         {
             var query = _queryRepository.GetAll()

@@ -29,8 +29,7 @@ namespace DsInsurance.Services.Implementations
         }
         public List<PolicyTransactionDto> GetAllTransactionsByUserId(Guid userId)
         {
-            var transactions = _transactionRepository.GetAll().Include(pt => pt.PolicyAccount)
-                .Where(pt=> pt.UserId == userId).ToList();
+            var transactions = _transactionRepository.GetAll().Where(pt=> pt.UserId == userId).ToList();
             if (!transactions.Any())
                 throw new NotFoundException("PolicyTransactions");
 

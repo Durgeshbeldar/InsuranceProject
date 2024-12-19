@@ -371,6 +371,22 @@
   },
   {
     "ContainingType": "DsInsurance.Controllers.CustomerController",
+    "Method": "GetCustomersByAgentId",
+    "RelativePath": "api/Customer/Agent/{agentId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "agentId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.CustomerController",
     "Method": "ChangeCustomerKycStatus",
     "RelativePath": "api/Customer/Kyc",
     "HttpMethod": "PUT",
@@ -453,6 +469,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.CustomerQueryController",
+    "Method": "GetAllQueriesByCustomerId",
+    "RelativePath": "api/CustomerQuery/Customer/{customerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
         "Type": "System.Guid",
         "IsRequired": true
       }

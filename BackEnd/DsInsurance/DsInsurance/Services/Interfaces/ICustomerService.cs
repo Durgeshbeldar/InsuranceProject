@@ -10,5 +10,6 @@ namespace DsInsurance.Services.Interfaces
         void UpdateCustomer(CustomerDto customerDto);
         void DeleteCustomer(Guid customerId);
         public bool ChangeKycStatus(VerifyCustomerDto verifyCustomerDto);
+        public List<CustomerDto> GetCustomersByAgentId(Guid agentId);
     }
 }

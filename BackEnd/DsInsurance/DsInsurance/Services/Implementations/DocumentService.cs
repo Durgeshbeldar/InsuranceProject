@@ -28,6 +28,8 @@ namespace DsInsurance.Services.Implementations
             return _mapper.Map<List<DocumentDto>>(documents);
         }
 
+        
+
         public DocumentDto GetDocumentById(Guid documentId)
         {
             var document = _documentRepository.GetById(documentId);

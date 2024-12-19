@@ -47,6 +47,17 @@ namespace DsInsurance.Services.Implementations
             return _mapper.Map<CustomerDto>(customer);
         }
 
+        public List<CustomerDto> GetCustomersByAgentId(Guid agentId)
+        {
+            var customers = _customerRepository.GetAll().Where(c=> c.AgentId == agentId);
+            if (customers == null)
+                throw new NotFoundException("Customers");
+
+            return _mapper.Map<List<CustomerDto>>(customers);
+        }
+
+
+
         public Guid AddCustomer(CustomerDto customerDto)
         {
             var customer = _mapper.Map<Customer>(customerDto);

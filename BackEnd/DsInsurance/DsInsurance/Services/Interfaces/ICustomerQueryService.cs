@@ -9,5 +9,6 @@ namespace DsInsurance.Services.Interfaces
         Guid AddCustomerQuery(CustomerQueryDto queryDto);
         void UpdateCustomerQuery(CustomerQueryDto queryDto);
         void DeleteCustomerQuery(Guid queryId);
+        public List<CustomerQueryDto> GetAllQueriesCustomerId(Guid customerId);
     }
 }
