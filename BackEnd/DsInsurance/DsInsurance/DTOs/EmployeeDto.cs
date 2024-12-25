@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DsInsurance.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace DsInsurance.DTOs
 {
@@ -31,6 +32,6 @@ namespace DsInsurance.DTOs
         [Required(ErrorMessage = "Department is required.")]
         public string Department { get; set; }
 
-        public bool IsActive { get; set; } = true;
+        public User? User { get; set; }
     }
 }

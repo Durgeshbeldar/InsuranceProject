@@ -43,6 +43,9 @@ namespace DsInsurance.Mappers
             CreateMap<CustomerQuery, CustomerQueryDto>();
             CreateMap<CustomerQueryDto, CustomerQuery>();
 
+            CreateMap<Claim, ClaimDto>();
+            CreateMap<ClaimDto, Claim>();
+
             CreateMap<PolicyCoverage, PolicyCoverageDto>();
             CreateMap<PolicyCoverageDto, PolicyCoverage>();
 

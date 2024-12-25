@@ -4,6 +4,7 @@ using DsInsurance.Exceptions;
 using DsInsurance.Models;
 using DsInsurance.Repositories.Interfaces;
 using DsInsurance.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DsInsurance.Services.Implementations
 {
@@ -20,7 +21,7 @@ namespace DsInsurance.Services.Implementations
 
         public List<EmployeeDto> GetAllEmployees()
         {
-            var employees = _employeeRepository.GetAll().ToList();
+            var employees = _employeeRepository.GetAll().Include(emp=> emp.User).ToList();
             if (!employees.Any())
                 throw new NotFoundException("Employees");
 

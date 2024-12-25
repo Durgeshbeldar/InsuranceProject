@@ -21,7 +21,9 @@ namespace DsInsurance.Services.Implementations
 
         public List<CustomerDto> GetAllCustomers()
         {
-            var customers = _customerRepository.GetAll().Include(c=> c.Documents).ToList();
+            var customers = _customerRepository.GetAll().Include(c=> c.Documents)
+                .Include(c=>c.User)
+                .ToList();
             if (!customers.Any())
                 throw new NotFoundException("Customers");
 

@@ -55,7 +55,7 @@ namespace DsInsurance.Migrations
                 columns: table => new
                 {
                     SchemeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PlanId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    PlanId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SchemeName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MinAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -221,11 +221,12 @@ namespace DsInsurance.Migrations
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
-                    AddressId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    KycVerified = table.Column<bool>(type: "bit", nullable: false),
-                    TotalCommission = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Rating = table.Column<float>(type: "real", nullable: false),
-                    ActiveSince = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    AddressId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    KycVerified = table.Column<bool>(type: "bit", nullable: true),
+                    TotalCommission = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    WalletBalance = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
+                    Rating = table.Column<float>(type: "real", nullable: true),
+                    ActiveSince = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -234,8 +235,7 @@ namespace DsInsurance.Migrations
                         name: "FK_Agents_Addresses_AddressId",
                         column: x => x.AddressId,
                         principalTable: "Addresses",
-                        principalColumn: "AddressId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "AddressId");
                     table.ForeignKey(
                         name: "FK_Agents_Users_AgentId",
                         column: x => x.AgentId,
@@ -281,23 +281,72 @@ namespace DsInsurance.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "WithdrawalRequests",
+                columns: table => new
+                {
+                    WithdrawalRequestId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AgentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RequestDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ResponseMessage = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WithdrawalRequests", x => x.WithdrawalRequestId);
+                    table.ForeignKey(
+                        name: "FK_WithdrawalRequests_Agents_AgentId",
+                        column: x => x.AgentId,
+                        principalTable: "Agents",
+                        principalColumn: "AgentId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Documents",
+                columns: table => new
+                {
+                    DocumentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DocumentName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    FilePath = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Message = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsVerified = table.Column<bool>(type: "bit", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Documents", x => x.DocumentId);
+                    table.ForeignKey(
+                        name: "FK_Documents_Customers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customers",
+                        principalColumn: "CustomerId");
+                    table.ForeignKey(
+                        name: "FK_Documents_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "UserId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "PolicyAccounts",
                 columns: table => new
                 {
                     PolicyNo = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PolicyNumber = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AgentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    AgentId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     SchemeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SumAssured = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     PremiumType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PolicyTerm = table.Column<int>(type: "int", nullable: false),
-                    PremiumAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PremiumAmount = table.Column<double>(type: "float", nullable: false),
                     TotalPaidAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     InstallmentAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
                     IsApproved = table.Column<bool>(type: "bit", nullable: false),
-                    IssueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AppliedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IssueDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CancellationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     MaturityDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -330,7 +379,43 @@ namespace DsInsurance.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Installment",
+                name: "CustomerQueries",
+                columns: table => new
+                {
+                    QueryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CustomerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PolicyNo = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Response = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ResolvedBy = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ResolvedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CustomerQueries", x => x.QueryId);
+                    table.ForeignKey(
+                        name: "FK_CustomerQueries_Customers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customers",
+                        principalColumn: "CustomerId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CustomerQueries_Employees_ResolvedBy",
+                        column: x => x.ResolvedBy,
+                        principalTable: "Employees",
+                        principalColumn: "EmployeeId");
+                    table.ForeignKey(
+                        name: "FK_CustomerQueries_PolicyAccounts_PolicyNo",
+                        column: x => x.PolicyNo,
+                        principalTable: "PolicyAccounts",
+                        principalColumn: "PolicyNo");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Installments",
                 columns: table => new
                 {
                     InstallmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -338,17 +423,18 @@ namespace DsInsurance.Migrations
                     DueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PaymentDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     AmountDue = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    PaymentMethod = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PolicyAccountPolicyNo = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Installment", x => x.InstallmentId);
+                    table.PrimaryKey("PK_Installments", x => x.InstallmentId);
                     table.ForeignKey(
-                        name: "FK_Installment_PolicyAccounts_PolicyNo",
-                        column: x => x.PolicyNo,
+                        name: "FK_Installments_PolicyAccounts_PolicyAccountPolicyNo",
+                        column: x => x.PolicyAccountPolicyNo,
                         principalTable: "PolicyAccounts",
-                        principalColumn: "PolicyNo",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "PolicyNo");
                 });
 
             migrationBuilder.CreateTable(
@@ -375,7 +461,7 @@ namespace DsInsurance.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PolicyCoverage",
+                name: "PolicyCoverages",
                 columns: table => new
                 {
                     CoverageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -387,9 +473,9 @@ namespace DsInsurance.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PolicyCoverage", x => x.CoverageId);
+                    table.PrimaryKey("PK_PolicyCoverages", x => x.CoverageId);
                     table.ForeignKey(
-                        name: "FK_PolicyCoverage_PolicyAccounts_PolicyNo",
+                        name: "FK_PolicyCoverages_PolicyAccounts_PolicyNo",
                         column: x => x.PolicyNo,
                         principalTable: "PolicyAccounts",
                         principalColumn: "PolicyNo",
@@ -397,21 +483,25 @@ namespace DsInsurance.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PolicyTransaction",
+                name: "PolicyTransactions",
                 columns: table => new
                 {
                     TransactionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     PolicyNo = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    InstallmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    PaymentMethod = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TransactionType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TransactionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PolicyTransaction", x => x.TransactionId);
+                    table.PrimaryKey("PK_PolicyTransactions", x => x.TransactionId);
                     table.ForeignKey(
-                        name: "FK_PolicyTransaction_PolicyAccounts_PolicyNo",
+                        name: "FK_PolicyTransactions_PolicyAccounts_PolicyNo",
                         column: x => x.PolicyNo,
                         principalTable: "PolicyAccounts",
                         principalColumn: "PolicyNo",
@@ -450,6 +540,21 @@ namespace DsInsurance.Migrations
                 column: "StateId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CustomerQueries_CustomerId",
+                table: "CustomerQueries",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CustomerQueries_PolicyNo",
+                table: "CustomerQueries",
+                column: "PolicyNo");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CustomerQueries_ResolvedBy",
+                table: "CustomerQueries",
+                column: "ResolvedBy");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Customers_AddressId",
                 table: "Customers",
                 column: "AddressId");
@@ -460,9 +565,25 @@ namespace DsInsurance.Migrations
                 column: "AgentId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Installment_PolicyNo",
-                table: "Installment",
-                column: "PolicyNo");
+                name: "IX_Documents_CustomerId",
+                table: "Documents",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Documents_UserId",
+                table: "Documents",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Installments_PolicyAccountPolicyNo",
+                table: "Installments",
+                column: "PolicyAccountPolicyNo");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InsurancePlans_PlanName",
+                table: "InsurancePlans",
+                column: "PlanName",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_InsuranceSchemes_InsurancePlanPlanId",
@@ -473,6 +594,12 @@ namespace DsInsurance.Migrations
                 name: "IX_InsuranceSchemes_PlanId",
                 table: "InsuranceSchemes",
                 column: "PlanId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InsuranceSchemes_SchemeName",
+                table: "InsuranceSchemes",
+                column: "SchemeName",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Nominees_PolicyAccountPolicyNo",
@@ -500,13 +627,13 @@ namespace DsInsurance.Migrations
                 column: "SchemeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PolicyCoverage_PolicyNo",
-                table: "PolicyCoverage",
+                name: "IX_PolicyCoverages_PolicyNo",
+                table: "PolicyCoverages",
                 column: "PolicyNo");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PolicyTransaction_PolicyNo",
-                table: "PolicyTransaction",
+                name: "IX_PolicyTransactions_PolicyNo",
+                table: "PolicyTransactions",
                 column: "PolicyNo");
 
             migrationBuilder.CreateIndex(
@@ -531,6 +658,11 @@ namespace DsInsurance.Migrations
                 table: "Users",
                 column: "UserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_WithdrawalRequests_AgentId",
+                table: "WithdrawalRequests",
+                column: "AgentId");
         }
 
         /// <inheritdoc />
@@ -540,19 +672,28 @@ namespace DsInsurance.Migrations
                 name: "Admins");
 
             migrationBuilder.DropTable(
-                name: "Employees");
+                name: "CustomerQueries");
 
             migrationBuilder.DropTable(
-                name: "Installment");
+                name: "Documents");
+
+            migrationBuilder.DropTable(
+                name: "Installments");
 
             migrationBuilder.DropTable(
                 name: "Nominees");
 
             migrationBuilder.DropTable(
-                name: "PolicyCoverage");
+                name: "PolicyCoverages");
 
             migrationBuilder.DropTable(
-                name: "PolicyTransaction");
+                name: "PolicyTransactions");
+
+            migrationBuilder.DropTable(
+                name: "WithdrawalRequests");
+
+            migrationBuilder.DropTable(
+                name: "Employees");
 
             migrationBuilder.DropTable(
                 name: "PolicyAccounts");

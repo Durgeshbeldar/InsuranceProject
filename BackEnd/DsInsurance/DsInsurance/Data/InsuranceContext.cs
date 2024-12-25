@@ -24,6 +24,7 @@ namespace DsInsurance.Data
         public DbSet<Installment> Installments { get; set; }
         public DbSet<WithdrawalRequest> WithdrawalRequests { get; set; }
         public DbSet<CustomerQuery> CustomerQueries { get; set; }
+        public DbSet<Claim> Claims { get; set; }
 
         public DbSet<Document> Documents { get; set; }
         public InsuranceContext(DbContextOptions<InsuranceContext> options) : base(options)
@@ -69,6 +70,20 @@ namespace DsInsurance.Data
           .WithMany() // No reference back to InsuranceScheme
           .HasForeignKey(scheme => scheme.PlanId)
           .OnDelete(DeleteBehavior.NoAction);
+
+            modelBuilder.Entity<Claim>()
+        .HasOne(c => c.PolicyAccount)
+        .WithMany()
+        .HasForeignKey(c => c.PolicyNo)
+        .OnDelete(DeleteBehavior.Cascade); // Example: You can cascade delete here if required
+
+            modelBuilder.Entity<Claim>()
+                .HasOne(c => c.Customer)
+                .WithMany()
+                .HasForeignKey(c => c.CustomerId)
+                .OnDelete(DeleteBehavior.NoAction); // Prevent cascading delete here
+
+          
 
 
 

@@ -177,6 +177,58 @@ namespace DsInsurance.Migrations
                     b.ToTable("Cities");
                 });
 
+            modelBuilder.Entity("DsInsurance.Models.Claim", b =>
+                {
+                    b.Property<Guid>("ClaimId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ApprovalDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("BankAccountHolderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BankAccountNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BankName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ClaimAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("ClaimDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("IFSCCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("PolicyNo")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ClaimId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("PolicyNo");
+
+                    b.ToTable("Claims");
+                });
+
             modelBuilder.Entity("DsInsurance.Models.Customer", b =>
                 {
                     b.Property<Guid>("CustomerId")
@@ -832,6 +884,25 @@ namespace DsInsurance.Migrations
                         .IsRequired();
 
                     b.Navigation("State");
+                });
+
+            modelBuilder.Entity("DsInsurance.Models.Claim", b =>
+                {
+                    b.HasOne("DsInsurance.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("DsInsurance.Models.PolicyAccount", "PolicyAccount")
+                        .WithMany()
+                        .HasForeignKey("PolicyNo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("PolicyAccount");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.Customer", b =>

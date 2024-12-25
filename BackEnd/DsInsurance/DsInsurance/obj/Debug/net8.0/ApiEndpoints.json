@@ -296,6 +296,80 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DsInsurance.Controllers.ClaimController",
+    "Method": "GetAllClaims",
+    "RelativePath": "api/Claim",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.ClaimController",
+    "Method": "AddClaim",
+    "RelativePath": "api/Claim",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "claimDto",
+        "Type": "DsInsurance.DTOs.ClaimDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.ClaimController",
+    "Method": "UpdateClaim",
+    "RelativePath": "api/Claim",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "claimDto",
+        "Type": "DsInsurance.DTOs.ClaimDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.ClaimController",
+    "Method": "GetClaimById",
+    "RelativePath": "api/Claim/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DsInsurance.Controllers.ClaimController",
+    "Method": "GetClaimsByCustomerId",
+    "RelativePath": "api/Claim/Customer/{customerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DsInsurance.Controllers.CustomerController",
     "Method": "GetAllCustomers",
     "RelativePath": "api/Customer",

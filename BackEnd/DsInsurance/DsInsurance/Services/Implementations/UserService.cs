@@ -98,20 +98,10 @@ namespace DsInsurance.Services.Implementations
 
         public void UpdateUser(UserDto userDto)
         {
-            var user = _userRepository.GetById(userDto.UserId.Value);
+            var user = _userRepository.GetAll().AsNoTracking().FirstOrDefault(u=> u.UserId == userDto.UserId);
             if (user == null)
                 throw new NotFoundException("User");
-
-            if (user.UserName != userDto.UserName &&
-              _userRepository.GetAll().Any(user => user.UserName == userDto.UserName))
-                throw new AlreadyExistsException("User", "UserName");
-
-            if (user.Email != userDto.Email &&
-              _userRepository.GetAll().Any(user => user.Email == userDto.Email))
-                throw new AlreadyExistsException("User", "Email");
-
-            userDto.Password = BCrypt.Net.BCrypt.HashPassword(userDto.Password);
-            var updatedUser = _mapper.Map<User>(userDto);
+            var updatedUser =  _mapper.Map<User>(userDto);
             _userRepository.Update(updatedUser);
         }
 

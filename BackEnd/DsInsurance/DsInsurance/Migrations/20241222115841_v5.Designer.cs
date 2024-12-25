@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DsInsurance.Migrations
 {
     [DbContext(typeof(InsuranceContext))]
-    [Migration("20241211100755_v6")]
-    partial class v6
+    [Migration("20241222115841_v5")]
+    partial class v5
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -146,6 +146,9 @@ namespace DsInsurance.Migrations
                     b.Property<decimal?>("TotalCommission")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<decimal?>("WalletBalance")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("AgentId");
 
                     b.HasIndex("AddressId");
@@ -175,6 +178,55 @@ namespace DsInsurance.Migrations
                     b.HasIndex("StateId");
 
                     b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("DsInsurance.Models.Claim", b =>
+                {
+                    b.Property<Guid>("ClaimId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ApprovalDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("BankAccountHolderName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BankAccountNo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BankName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("ClaimAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime?>("ClaimDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("IFSCCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("PolicyNo")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ClaimId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("PolicyNo");
+
+                    b.ToTable("Claims");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.Customer", b =>
@@ -223,6 +275,89 @@ namespace DsInsurance.Migrations
                     b.HasIndex("AgentId");
 
                     b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("DsInsurance.Models.CustomerQuery", b =>
+                {
+                    b.Property<Guid>("QueryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("PolicyNo")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ResolvedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ResolvedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Response")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("QueryId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("PolicyNo");
+
+                    b.HasIndex("ResolvedBy");
+
+                    b.ToTable("CustomerQueries");
+                });
+
+            modelBuilder.Entity("DsInsurance.Models.Document", b =>
+                {
+                    b.Property<Guid>("DocumentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("DocumentName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsVerified")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("DocumentId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Documents");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.Employee", b =>
@@ -280,6 +415,9 @@ namespace DsInsurance.Migrations
 
                     b.Property<DateTime?>("PaymentDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentMethod")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid?>("PolicyAccountPolicyNo")
                         .HasColumnType("uniqueidentifier");
@@ -387,6 +525,9 @@ namespace DsInsurance.Migrations
 
                     b.HasIndex("PlanId");
 
+                    b.HasIndex("SchemeName")
+                        .IsUnique();
+
                     b.ToTable("InsuranceSchemes");
                 });
 
@@ -435,11 +576,14 @@ namespace DsInsurance.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("AgentId")
+                    b.Property<Guid?>("AgentId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("AgentId1")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("AppliedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("CancellationDate")
                         .HasColumnType("datetime2");
@@ -456,7 +600,7 @@ namespace DsInsurance.Migrations
                     b.Property<bool>("IsApproved")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("IssueDate")
+                    b.Property<DateTime?>("IssueDate")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("MaturityDate")
@@ -465,8 +609,8 @@ namespace DsInsurance.Migrations
                     b.Property<int>("PolicyTerm")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("PremiumAmount")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("PremiumAmount")
+                        .HasColumnType("float");
 
                     b.Property<string>("PremiumType")
                         .IsRequired()
@@ -540,8 +684,17 @@ namespace DsInsurance.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("InstallmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PaymentMethod")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("PolicyNo")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("TransactionDate")
                         .HasColumnType("datetime2");
@@ -549,6 +702,9 @@ namespace DsInsurance.Migrations
                     b.Property<string>("TransactionType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("TransactionId");
 
@@ -637,6 +793,35 @@ namespace DsInsurance.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("DsInsurance.Models.WithdrawalRequest", b =>
+                {
+                    b.Property<Guid>("WithdrawalRequestId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AgentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("RequestDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ResponseMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("WithdrawalRequestId");
+
+                    b.HasIndex("AgentId");
+
+                    b.ToTable("WithdrawalRequests");
+                });
+
             modelBuilder.Entity("DsInsurance.Models.Address", b =>
                 {
                     b.HasOne("DsInsurance.Models.City", "City")
@@ -701,6 +886,25 @@ namespace DsInsurance.Migrations
                     b.Navigation("State");
                 });
 
+            modelBuilder.Entity("DsInsurance.Models.Claim", b =>
+                {
+                    b.HasOne("DsInsurance.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("DsInsurance.Models.PolicyAccount", "PolicyAccount")
+                        .WithMany()
+                        .HasForeignKey("PolicyNo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("PolicyAccount");
+                });
+
             modelBuilder.Entity("DsInsurance.Models.Customer", b =>
                 {
                     b.HasOne("DsInsurance.Models.Address", "Address")
@@ -722,6 +926,42 @@ namespace DsInsurance.Migrations
                     b.Navigation("Agent");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("DsInsurance.Models.CustomerQuery", b =>
+                {
+                    b.HasOne("DsInsurance.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DsInsurance.Models.PolicyAccount", "PolicyAccount")
+                        .WithMany()
+                        .HasForeignKey("PolicyNo");
+
+                    b.HasOne("DsInsurance.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("ResolvedBy");
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("PolicyAccount");
+                });
+
+            modelBuilder.Entity("DsInsurance.Models.Document", b =>
+                {
+                    b.HasOne("DsInsurance.Models.Customer", null)
+                        .WithMany("Documents")
+                        .HasForeignKey("CustomerId");
+
+                    b.HasOne("DsInsurance.Models.User", null)
+                        .WithMany("Documents")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("DsInsurance.Models.Employee", b =>
@@ -769,8 +1009,7 @@ namespace DsInsurance.Migrations
                     b.HasOne("DsInsurance.Models.Agent", "Agent")
                         .WithMany()
                         .HasForeignKey("AgentId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("DsInsurance.Models.Agent", null)
                         .WithMany("PolicyAccounts")
@@ -828,6 +1067,17 @@ namespace DsInsurance.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("DsInsurance.Models.WithdrawalRequest", b =>
+                {
+                    b.HasOne("DsInsurance.Models.Agent", "Agent")
+                        .WithMany()
+                        .HasForeignKey("AgentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Agent");
+                });
+
             modelBuilder.Entity("DsInsurance.Models.Agent", b =>
                 {
                     b.Navigation("Customers");
@@ -838,6 +1088,11 @@ namespace DsInsurance.Migrations
             modelBuilder.Entity("DsInsurance.Models.City", b =>
                 {
                     b.Navigation("Addresses");
+                });
+
+            modelBuilder.Entity("DsInsurance.Models.Customer", b =>
+                {
+                    b.Navigation("Documents");
                 });
 
             modelBuilder.Entity("DsInsurance.Models.PolicyAccount", b =>
@@ -859,6 +1114,11 @@ namespace DsInsurance.Migrations
             modelBuilder.Entity("DsInsurance.Models.State", b =>
                 {
                     b.Navigation("Cities");
+                });
+
+            modelBuilder.Entity("DsInsurance.Models.User", b =>
+                {
+                    b.Navigation("Documents");
                 });
 #pragma warning restore 612, 618
         }

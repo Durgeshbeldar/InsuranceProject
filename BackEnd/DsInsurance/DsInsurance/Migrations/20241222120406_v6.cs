@@ -5,14 +5,14 @@
 namespace DsInsurance.Migrations
 {
     /// <inheritdoc />
-    public partial class v32 : Migration
+    public partial class v6 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "ResponseMessage",
-                table: "WithdrawalRequests",
+                name: "Message",
+                table: "Claims",
                 type: "nvarchar(max)",
                 nullable: true);
         }
@@ -21,8 +21,8 @@ namespace DsInsurance.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "ResponseMessage",
-                table: "WithdrawalRequests");
+                name: "Message",
+                table: "Claims");
         }
     }
 }

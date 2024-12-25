@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DsInsurance.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace DsInsurance.DTOs
 {
@@ -34,5 +35,7 @@ namespace DsInsurance.DTOs
         public float? Rating { get; set; } = 0;
 
         public DateTime? ActiveSince { get; set; } = DateTime.UtcNow;
+
+        public User? User { get; set; }
     }
 }

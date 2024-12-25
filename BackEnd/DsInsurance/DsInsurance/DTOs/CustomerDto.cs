@@ -35,5 +35,7 @@ namespace DsInsurance.DTOs
         public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
         public ICollection<Document>? Documents { get; set; }
 
+        public User? User { get; set; }
+
     }
 }

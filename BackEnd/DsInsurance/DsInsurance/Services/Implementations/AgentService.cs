@@ -21,7 +21,7 @@ namespace DsInsurance.Services.Implementations
 
         public List<AgentDto> GetAllAgents()
         {
-            var agents = _agentRepository.GetAll().ToList();
+            var agents = _agentRepository.GetAll().Include(agent=>agent.User).ToList();
             if (!agents.Any())
                 throw new NotFoundException("Agents");
 

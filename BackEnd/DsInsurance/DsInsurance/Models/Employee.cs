@@ -32,8 +32,6 @@ namespace DsInsurance.Models
         [Required]
         public string Department { get; set; } // Enum: Claims, Underwriting, Support
 
-        public bool IsActive { get; set; } = true;
-
         // Navigation Properties
         public User? User { get; set; }
     }

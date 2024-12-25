@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DsInsurance.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace DsInsurance.DTOs
 {
@@ -28,5 +29,7 @@ namespace DsInsurance.DTOs
         public Guid? AddressId { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        
+        public User? User { get; set; }
     }
 }

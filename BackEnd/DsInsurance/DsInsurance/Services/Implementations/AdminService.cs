@@ -4,6 +4,7 @@ using DsInsurance.Exceptions;
 using DsInsurance.Models;
 using DsInsurance.Repositories.Interfaces;
 using DsInsurance.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DsInsurance.Services.Implementations
 {
@@ -20,7 +21,7 @@ namespace DsInsurance.Services.Implementations
 
         public List<AdminDto> GetAllAdmins()
         {
-            var admins = _adminRepository.GetAll().ToList();
+            var admins = _adminRepository.GetAll().Include(ad=> ad.User).ToList();
             if (!admins.Any())
                 throw new NotFoundException("Admins");
 
