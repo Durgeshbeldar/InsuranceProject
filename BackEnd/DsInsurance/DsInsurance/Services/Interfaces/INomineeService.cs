@@ -9,5 +9,6 @@ namespace DsInsurance.Services.Interfaces
         Guid AddNominee(NomineeDto nomineeDto);
         void UpdateNominee(NomineeDto nomineeDto);
         void DeleteNominee(Guid nomineeId);
+        public NomineeDto GetNomineeByPolicyNo(Guid policyNo);
     }
 }

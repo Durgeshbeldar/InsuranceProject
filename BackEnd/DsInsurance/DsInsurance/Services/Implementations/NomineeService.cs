@@ -4,6 +4,7 @@ using DsInsurance.Exceptions;
 using DsInsurance.Models;
 using DsInsurance.Repositories.Interfaces;
 using DsInsurance.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace DsInsurance.Services.Implementations
 {
@@ -36,6 +37,15 @@ namespace DsInsurance.Services.Implementations
             return _mapper.Map<NomineeDto>(nominee);
         }
 
+        public NomineeDto GetNomineeByPolicyNo(Guid policyNo)
+        {
+            var nominee = _nomineeRepository.GetAll().FirstOrDefault(nom=> nom.PolicyNo == policyNo);
+            if (nominee == null)
+                throw new NotFoundException("Nominee");
+
+            return _mapper.Map<NomineeDto>(nominee);
+        }
+
         public Guid AddNominee(NomineeDto nomineeDto)
         {
             var nominee = _mapper.Map<Nominee>(nomineeDto);
@@ -45,7 +55,7 @@ namespace DsInsurance.Services.Implementations
 
         public void UpdateNominee(NomineeDto nomineeDto)
         {
-            var existingNominee = _nomineeRepository.GetById(nomineeDto.NomineeId.Value);
+            var existingNominee = _nomineeRepository.GetAll().AsNoTracking().FirstOrDefault(n=> n.NomineeId == nomineeDto.NomineeId);
             if (existingNominee == null)
                 throw new NotFoundException("Nominee");
 

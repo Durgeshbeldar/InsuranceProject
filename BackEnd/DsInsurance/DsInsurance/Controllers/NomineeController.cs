@@ -37,6 +37,16 @@ namespace DsInsurance.Controllers
                 Data = nominee
             });
         }
+        [HttpGet("Policy/{policyNo}")]
+        public IActionResult GetNomineeByPolicyNo(Guid policyNo)
+        {
+            var nominee = _nomineeService.GetNomineeByPolicyNo(policyNo);
+            return Ok(new
+            {
+                Message = "Nominee retrieved successfully.",
+                Data = nominee
+            });
+        }
 
         [HttpPost]
         public IActionResult AddNominee(NomineeDto nomineeDto)

@@ -1178,6 +1178,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DsInsurance.Controllers.NomineeController",
+    "Method": "GetNomineeByPolicyNo",
+    "RelativePath": "api/Nominee/Policy/{policyNo}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "policyNo",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DsInsurance.Controllers.PolicyAccountController",
     "Method": "GetAllPolicyAccounts",
     "RelativePath": "api/PolicyAccount",

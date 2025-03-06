@@ -172,3 +172,7 @@ S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd
 S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd\DsInsurance\DsInsurance\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd\DsInsurance\DsInsurance\bin\Debug\net8.0\CloudinaryDotNet.dll
 S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd\DsInsurance\DsInsurance\bin\Debug\net8.0\Newtonsoft.Json.dll
+S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd\DsInsurance\DsInsurance\bin\Debug\net8.0\DsInsurance.staticwebassets.endpoints.json
+S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd\DsInsurance\DsInsurance\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd\DsInsurance\DsInsurance\obj\Debug\net8.0\staticwebassets\msbuild.DsInsurance.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+S:\Office Work\Monocept Training\E-Insurance Project\Main Project Folder\BackEnd\DsInsurance\DsInsurance\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

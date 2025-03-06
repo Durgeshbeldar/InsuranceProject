@@ -111,8 +111,8 @@ namespace DsInsurance.Services.Implementations
             if (user == null)
                 throw new NotFoundException("User");
 
-            user.IsActive = false; // Mark as inactive
-            _userRepository.Update(user); // Persist the change
+            user.IsActive = false; 
+            _userRepository.Update(user); 
         }
 
         public void HardDeleteUser(Guid userId)

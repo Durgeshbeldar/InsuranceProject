@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "mlJWplGUeD0o8/6n60FxcwYyv4n43EjnsbRAbnVl3gQ=",
+  "Hash": "g6Hs+nG3SvOlqG3Ali9gRzYSuLtXIVKEZQAtKFrY5tU=",
   "Source": "DsInsurance",
   "BasePath": "_content/DsInsurance",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

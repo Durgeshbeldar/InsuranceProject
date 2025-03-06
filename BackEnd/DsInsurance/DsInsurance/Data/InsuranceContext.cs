@@ -26,6 +26,7 @@ namespace DsInsurance.Data
         public DbSet<CustomerQuery> CustomerQueries { get; set; }
         public DbSet<Claim> Claims { get; set; }
 
+
         public DbSet<Document> Documents { get; set; }
         public InsuranceContext(DbContextOptions<InsuranceContext> options) : base(options)
         {
